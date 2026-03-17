@@ -100,7 +100,7 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Process Portfolio | ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Campass: A gamified XJTLU campus tour experience.">
       <HomepageHeader />
       <main>
