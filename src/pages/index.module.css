@@ -21,3 +21,40 @@
   align-items: center;
   justify-content: center;
 }
+
+
+.heroText {
+  text-align: left; 
+  max-width: 60%;
+  position: relative;
+  z-index: 2; 
+}
+
+
+.librarySticker {
+  position: absolute;
+  right: 10%;  
+  top: 50px;   
+  width: 500px; 
+  height: auto;
+  
+
+  transform: rotate(-3deg); 
+  
+  opacity: 0.95;
+  filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.1));
+  
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+@media screen and (max-width: 996px) {
+  .heroText {
+    max-width: 100%;
+    text-align: center;
+  }
+  .librarySticker {
+    display: none; 
+  }
+}
