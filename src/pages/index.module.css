@@ -14,6 +14,13 @@
   .heroBanner {
     padding: 2rem;
   }
+    .heroText {
+    max-width: 100%;
+    text-align: center;
+  }
+  .librarySticker {
+    display: none; 
+  }
 }
 
 .buttons {
@@ -31,30 +38,37 @@
 }
 
 
+
+/* 贴纸的基础样式 */
 .librarySticker {
   position: absolute;
   right: 10%;  
   top: 50px;   
   width: 500px; 
   height: auto;
-  
-
-  transform: rotate(-3deg); 
-  
-  opacity: 0.95;
-  filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.1));
-  
   z-index: 1;
-  pointer-events: none;
+
+  transform: rotate(-4deg) scale(1);
+  opacity: 0.95;
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+
+  transition: 
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    filter 0.3s ease, 
+    opacity 0.3s ease;
+
+  cursor: pointer;      
+  pointer-events: auto; 
+}
+
+.librarySticker:hover {
+  transform: rotate(0deg) scale(1.15) translateY(-15px);
+  opacity: 1; 
+  filter: drop-shadow(15px 25px 25px rgba(0, 0, 0, 0.2));
 }
 
 
-@media screen and (max-width: 996px) {
-  .heroText {
-    max-width: 100%;
-    text-align: center;
-  }
-  .librarySticker {
-    display: none; 
-  }
+.librarySticker:active {
+  transform: scale(1.05) translateY(-5px);
+  transition: transform 0.1s ease;
 }
