@@ -14,7 +14,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title" style={{ fontSize: '4rem' }}>
-          Welcome to <span>Cam<span style={{ color: '#FFD700' }}>pass</span></span>
+          Welcome to <span><span className="logo-cam">Cam</span><span className="logo-pass">pass</span></span>
         </Heading>
         
         <p className="hero__subtitle" style={{ fontSize: '1.5rem', marginTop: '1rem' }}>
@@ -31,7 +31,7 @@ function HomepageHeader() {
           <Link
             className="button button--outline button--secondary button--lg"
             to="/docs/technical-implementation/high-fi-prototype"
-            style={{ padding: '0.8rem 2rem', fontSize: '1.1rem', backgroundColor: 'rgba(255,255,255,0.1)' }}>
+            style={{ padding: '0.8rem 2rem', fontSize: '1.1rem', backgroundColor: 'var(--button-outline-bg)' }}>
             Try Prototype 📱
           </Link>
         </div>
