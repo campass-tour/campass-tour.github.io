@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
@@ -36,10 +37,10 @@ function HomepageHeader() {
           </Link>
         </div>
 
-        <img 
-          src="/img/favicon.svg" 
-          alt="XJTLU Library" 
-          className={styles.librarySticker} 
+        <img
+          src={useBaseUrl('img/favicon.svg')}
+          alt="icon"
+          className={styles.Sticker}
         />
         
       </div>
