@@ -1,3 +1,90 @@
+/* User Journey Map 结构化卡片样式 */
+.journey-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.journey-card {
+  background-color: var(--color-surface, #fff);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  padding: 20px;
+  box-shadow: var(--shadow-card, 0px 4px 12px rgba(0,0,0,0.05));
+}
+.journey-card-title {
+  color: var(--ifm-color-primary);
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--button-outline-bg);
+  padding-bottom: 8px;
+}
+.journey-card-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.journey-before-card {
+  background: rgba(255, 77, 79, 0.05);
+  border-left: 4px solid #ff4d4f;
+  padding: 16px;
+  border-radius: 0 8px 8px 0;
+}
+.journey-before-title {
+  font-weight: 600;
+  color: #cf1322;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.journey-before-icon {
+  font-size: 1.2em;
+}
+.journey-after-card {
+  background: rgba(0, 196, 204, 0.05);
+  border-left: 4px solid #00C4CC;
+  padding: 16px;
+  border-radius: 0 8px 8px 0;
+}
+.journey-after-title {
+  font-weight: 600;
+  color: #008b91;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.journey-after-icon {
+  font-size: 1.2em;
+}
+.journey-card-desc {
+  margin: 0;
+  font-size: var(--font-size-body, 14px);
+  color: var(--color-text-main, #1A1A1A);
+  line-height: 1.6;
+}
+/* User Journey Map 图片样式 */
+.journey-img-wrap {
+  text-align: center;
+  margin: 2rem 0;
+}
+.journey-img {
+  border-radius: var(--radius-card, 16px);
+  box-shadow: var(--shadow-card, 0px 8px 24px rgba(0,0,0,0.1));
+  border: 1px solid rgba(40, 21, 89, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+.journey-img-caption {
+  font-size: var(--font-size-caption, 12px);
+  color: var(--color-text-secondary, #888888);
+  margin-top: 12px;
+}
+
+/* 暗色模式下图片说明文字色更淡 */
+[data-theme='dark'] .journey-img-caption {
+  color: var(--color-text-secondary-dark, #aaa);
+}
 /* 亮色模式变量和样式 */
 :root {
   --ifm-color-primary: #281559;

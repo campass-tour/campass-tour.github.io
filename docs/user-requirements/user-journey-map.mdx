@@ -1,0 +1,115 @@
+import React from 'react';
+
+# 2. User Requirements
+
+## 🗺️ User Journey Map: The "Solo Quest"
+
+To deeply understand the friction points our target users (Freshmen & Visitors) face, we mapped out a typical campus exploration scenario. The map below contrasts the **current frustrating experience (Grey Area)** with the **enhanced, playful experience (Yellow Area)** brought by **Campass**.
+
+<div className="journey-img-wrap">
+  <img 
+    src="/images/user-journey-map.png"
+    alt="Campass User Journey Map"
+    className="journey-img"
+  />
+  <p className="journey-img-caption">
+    <em>Figure: The Emotional Journey Curve. The grey curve illustrates the emotional drop-offs in the current state, while the yellow curve highlights the sustained engagement achieved through Campass.</em>
+  </p>
+</div>
+
+### 🔍 Journey Breakdown: Pain Points vs. Campass Solutions
+
+We identified profound emotional drop-offs during the **Navigation**, **Info Reception**, and **Social Sharing** phases. Here is how Campass directly addresses these critical pain points through playful interventions:
+
+<div className="journey-breakdown-list">
+
+  {/* Stage 1 */}
+  <JourneyCard stage="01. Preparation">
+    <BeforeCard 
+      title="Without Campass (Current State)" 
+      text="Unmotivated to explore the massive, generic campus. Feels like a daunting chore rather than an adventure." 
+    />
+    <AfterCard 
+      title="With Campass (Future State)" 
+      text="Taps a mysterious '?' pin on the interactive map, instantly triggering curiosity and starting a gamified quest." 
+    />
+  </JourneyCard>
+
+  {/* Stage 2 */}
+  <JourneyCard stage="02. Navigation">
+    <BeforeCard 
+      title="Without Campass (Current State)" 
+      text="GPS fails indoors; complex buildings (like CB) feel like a frustrating maze, leading to severe anxiety." 
+    />
+    <AfterCard 
+      title="With Campass (Future State)" 
+      text="Answers playful quizzes about XJTLU's philosophy to unlock step-by-step visual clues, turning getting lost into a puzzle." 
+    />
+  </JourneyCard>
+
+  {/* Stage 3 */}
+  <JourneyCard stage="03. Info Reception">
+    <BeforeCard 
+      title="Without Campass (Current State)" 
+      text="Official info plaques are text-heavy, dull, and non-interactive. The user skims and quickly disengages." 
+    />
+    <AfterCard 
+      title="With Campass (Future State)" 
+      text="Taps the physical NFC tag to summon a 3D AR mascot, revealing engaging lore in an immersive, tangible way." 
+    />
+  </JourneyCard>
+
+  {/* Stage 4 */}
+  <JourneyCard stage="04. Social Sharing">
+    <BeforeCard 
+      title="Without Campass (Current State)" 
+      text="Exploring alone feels isolating. Taking normal photos of empty buildings feels uninspiring and lonely." 
+    />
+    <AfterCard 
+      title="With Campass (Future State)" 
+      text="Takes an AR selfie with the mascot and posts it to the geo-locked 'Message Wall' to connect with others instantly." 
+    />
+  </JourneyCard>
+
+  {/* Stage 5 */}
+  <JourneyCard stage="05. Reflection">
+    <BeforeCard 
+      title="Without Campass (Current State)" 
+      text="Leaves the campus lacking a sense of long-term achievement and fails to build community belonging." 
+    />
+    <AfterCard 
+      title="With Campass (Future State)" 
+      text="Claims the newly unlocked mascot badge in the 'Collection' dashboard, feeling proud, accomplished, and connected." 
+    />
+  </JourneyCard>
+
+</div>
+
+{/* 下面是自定义 React 组件，用于在 MDX 中渲染高级卡片效果。你可以直接把这段留在 mdx 文件的末尾或底部 */}
+
+export const JourneyCard = ({ stage, children }) => (
+  <div className="journey-card">
+    <h4 className="journey-card-title">{stage}</h4>
+    <div className="journey-card-content">
+      {children}
+    </div>
+  </div>
+);
+
+export const BeforeCard = ({ title, text }) => (
+  <div className="journey-before-card">
+    <div className="journey-before-title">
+      <span className="journey-before-icon">☹️</span> {title}
+    </div>
+    <p className="journey-card-desc">{text}</p>
+  </div>
+);
+
+export const AfterCard = ({ title, text }) => (
+  <div className="journey-after-card">
+    <div className="journey-after-title">
+      <span className="journey-after-icon">🤩</span> {title}
+    </div>
+    <p className="journey-card-desc">{text}</p>
+  </div>
+);
