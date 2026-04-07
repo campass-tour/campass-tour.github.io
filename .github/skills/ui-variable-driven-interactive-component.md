@@ -37,6 +37,14 @@ This skill enforces a variable-first, component-driven, and theme-aware approach
 
 ---
 
+## Tech Stack
+- **React**
+- **Docusaurus**
+- **Lucide Icons**
+- **MDX**
+
+---
+
 ## Developer Checklist
 | Scenario                | Required Action                                                      |
 |-------------------------|----------------------------------------------------------------------|

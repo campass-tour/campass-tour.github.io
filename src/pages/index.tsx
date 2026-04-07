@@ -37,7 +37,7 @@ function HomepageHeader() {
         </div>
 
         <img 
-          src="/img/library-sticker.png" 
+          src="/img/favicon.svg" 
           alt="XJTLU Library" 
           className={styles.librarySticker} 
         />
@@ -49,20 +49,26 @@ function HomepageHeader() {
 }
 
 // 亮点卡片
+
+import { Fingerprint, Box, MessageCircle } from 'lucide-react';
+
 function ExperienceHighlights() {
-  const highlights =[
+  const highlights = [
     {
-      title: '🔍 Tangible Exploration',
-      description: 'Discover hidden gems and iconic buildings around the XJTLU campus. Every corner holds a new surprise waiting to be unlocked.',
+      title: 'Tangible Magic',
+      description: 'Physical touch unlocks the digital world.',
+      icon: Fingerprint,
     },
     {
-      title: '✨ Playful Journey',
-      description: 'Turn a boring campus tour into a gamified treasure hunt. Collect exclusive 3D campus sprites and bring them to life with AR.',
+      title: 'Living Heritage',
+      description: 'Bring static architecture to life.',
+      icon: Box,
     },
     {
-      title: '💬 Community Connection',
-      description: 'Leave your mark in digital time capsules. Share tips, post AR photos, and connect with past and future explorers at specific campus spots.',
-    }
+      title: 'Digital Legacy',
+      description: 'Leave your mark in a specific time and space.',
+      icon: MessageCircle,
+    },
   ];
 
   return (
@@ -72,24 +78,37 @@ function ExperienceHighlights() {
           More Than Just a Map
         </Heading>
         <div className="row">
-          {highlights.map((item, idx) => (
-            <div className="col col--4" key={idx} style={{ padding: '1rem' }}>
-              <div style={{
-                padding: '2rem',
-                borderRadius: '16px',
-                backgroundColor: 'var(--ifm-background-surface-color)',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.05)',
-                height: '100%',
-                transition: 'transform 0.3s ease',
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-              >
-                <Heading as="h3" style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{item.title}</Heading>
-                <p style={{ color: 'var(--ifm-color-emphasis-700)', lineHeight: '1.6' }}>{item.description}</p>
+          {highlights.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div className="col col--4" key={idx} style={{ padding: '1rem' }}>
+                <div
+                  style={{
+                    padding: '2rem',
+                    borderRadius: 'var(--radius-card, 16px)',
+                    backgroundColor: 'var(--button-outline-bg, rgba(255,255,255,0.15))',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)',
+                    border: '1px solid var(--button-outline-bg, rgba(255,255,255,0.2))',
+                    boxShadow: 'var(--shadow-card, 0 8px 24px rgba(0,0,0,0.05))',
+                    height: '100%',
+                    transition: 'all 0.3s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-5px)')}
+                  onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.2rem' }}>
+                    <Icon size={32} style={{ color: 'var(--ifm-color-primary)', marginRight: '0.75rem', flexShrink: 0 }} />
+                    <Heading as="h3" style={{ fontSize: '1.5rem', margin: 0 }}>{item.title}</Heading>
+                  </div>
+                  <p style={{ color: 'var(--ifm-color-emphasis-700)', lineHeight: '1.6', margin: 0 }}>{item.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
