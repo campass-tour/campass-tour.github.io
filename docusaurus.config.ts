@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Campass',
   tagline: 'CPT208',
-  favicon: 'img/favicon.ico',
+  favicon: 'icon/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -77,8 +77,8 @@ const config: Config = {
     navbar: {
       title: 'Campass',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Campass Logo',
+        src: 'icon/favicon.svg',
       },
       items: [
         // {

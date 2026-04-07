@@ -42,35 +42,14 @@ export const InteractiveUJM = () => {
   ];
 
   return (
-    <div style={{ margin: '2rem 0', fontFamily: 'var(--font-family-en)' }}>
+    <div className="interactive-ujm-root">
       {/* 阶段导航条 */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        marginBottom: '1.5rem',
-        background: 'var(--button-outline-bg)',
-        padding: '8px',
-        borderRadius: 'var(--radius-pill, 100px)',
-        overflowX: 'auto'
-      }}>
+      <div className="interactive-ujm-stage-bar">
         {stages.map((s) => (
           <button
             key={s.id}
             onClick={() => setActiveStage(s.id)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '10px 20px',
-              border: 'none',
-              borderRadius: 'var(--radius-pill, 100px)',
-              cursor: 'pointer',
-              backgroundColor: activeStage === s.id ? 'var(--ifm-color-primary)' : 'transparent',
-              color: activeStage === s.id ? '#fff' : 'var(--ifm-color-primary)',
-              transition: 'all 0.3s ease',
-              fontWeight: '600',
-              whiteSpace: 'nowrap'
-            }}
+            className={`interactive-ujm-stage-btn${activeStage === s.id ? ' active' : ''}`}
           >
             {s.icon}
             {s.label}
@@ -79,52 +58,31 @@ export const InteractiveUJM = () => {
       </div>
 
       {/* 内容展示区 */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-        gap: '20px',
-        animation: 'fadeIn 0.5s ease' 
-      }}>
+      <div className="interactive-ujm-content-grid">
         {/* Pain Point 卡片 */}
-        <div style={{
-          padding: '24px',
-          borderRadius: 'var(--radius-card)',
-          background: 'var(--color-surface)',
-          border: '1px solid #ff4d4f22',
-          boxShadow: '0 4px 20px rgba(255, 77, 79, 0.05)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', color: '#cf1322' }}>
+        <div className="interactive-ujm-card interactive-ujm-card-friction">
+          <div className="interactive-ujm-card-title interactive-ujm-card-title-friction">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            <span style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Current Friction</span>
+            <span>Current Friction</span>
           </div>
-          <p style={{ color: 'var(--color-text-main)', fontSize: '1.05rem', lineHeight: '1.6', margin: 0 }}>
+          <p className="interactive-ujm-card-desc">
             {stages[activeStage].before}
           </p>
-          <div style={{ position: 'absolute', right: '-10px', bottom: '-10px', opacity: 0.03, transform: 'scale(4)' }}>
+          <div className="interactive-ujm-card-watermark interactive-ujm-card-watermark-friction">
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
           </div>
         </div>
 
         {/* Campass Solution 卡片 */}
-        <div style={{
-          padding: '24px',
-          borderRadius: 'var(--radius-card)',
-          background: 'linear-gradient(145deg, var(--color-surface) 0%, rgba(0, 196, 204, 0.05) 100%)',
-          border: '1px solid var(--color-accent)',
-          boxShadow: '0 8px 30px rgba(0, 196, 204, 0.1)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', color: 'var(--color-accent)' }}>
+        <div className="interactive-ujm-card interactive-ujm-card-solution">
+          <div className="interactive-ujm-card-title interactive-ujm-card-title-solution">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
-            <span style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Campass Intervention</span>
+            <span>Campass Intervention</span>
           </div>
-          <p style={{ color: 'var(--color-text-main)', fontSize: '1.05rem', lineHeight: '1.6', margin: 0, fontWeight: '500' }}>
+          <p className="interactive-ujm-card-desc">
             {stages[activeStage].after}
           </p>
-           <div style={{ position: 'absolute', right: '-10px', bottom: '-10px', opacity: 0.05, transform: 'scale(4)', color: 'var(--color-accent)' }}>
+           <div className="interactive-ujm-card-watermark interactive-ujm-card-watermark-solution">
              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
           </div>
         </div>
@@ -135,7 +93,7 @@ export const InteractiveUJM = () => {
 
 # User Requirements
 
-## 🗺️ User Journey Map: The "Solo Quest"
+## User Journey Map: The "Solo Quest"
 
 To deeply understand the friction points our target users face, we mapped the **current frustrating experience (Grey)** against the **enhanced, playful journey (Yellow)** enabled by Campass.
 
@@ -152,7 +110,7 @@ To deeply understand the friction points our target users face, we mapped the **
   />
 </div>
 
-### 🔍 Deep Dive into Experience Stages
+## Deep Dive into Experience Stages
 *Select a stage below to explore the transformation in user experience.*
 
 <InteractiveUJM />
