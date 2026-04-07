@@ -1,115 +1,158 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-# 2. User Requirements
+export const InteractiveUJM = () => {
+  const [activeStage, setActiveStage] = useState(0);
+
+  const stages = [
+    {
+      id: 0,
+      label: "Preparation",
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>,
+      before: "Unmotivated to explore the massive, generic campus. Feels like a daunting chore rather than an adventure.",
+      after: "Taps a mysterious '?' pin on the interactive map, instantly triggering curiosity and starting a gamified quest."
+    },
+    {
+      id: 1,
+      label: "Navigation",
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>,
+      before: "GPS fails indoors; complex buildings (like CB) feel like a maze, leading to severe anxiety.",
+      after: "Answers playful quizzes about XJTLU's philosophy to unlock step-by-step visual clues, turning navigation into a puzzle."
+    },
+    {
+      id: 2,
+      label: "Reception",
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>,
+      before: "Official info plaques are text-heavy, dull, and non-interactive. Users quickly disengage.",
+      after: "Taps physical NFC tag to summon a 3D AR mascot, revealing engaging lore in an immersive way."
+    },
+    {
+      id: 3,
+      label: "Sharing",
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>,
+      before: "Exploring alone feels isolating. Taking photos of empty buildings feels uninspiring.",
+      after: "Takes an AR selfie with the mascot and posts it to the 'Message Wall' to connect with others."
+    },
+    {
+      id: 4,
+      label: "Reflection",
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>,
+      before: "Leaves campus lacking a sense of achievement and fails to build community belonging.",
+      after: "Claims the new badge in 'Collection', feeling proud, accomplished, and connected."
+    }
+  ];
+
+  return (
+    <div style={{ margin: '2rem 0', fontFamily: 'var(--font-family-en)' }}>
+      {/* 阶段导航条 */}
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        marginBottom: '1.5rem',
+        background: 'var(--button-outline-bg)',
+        padding: '8px',
+        borderRadius: 'var(--radius-pill, 100px)',
+        overflowX: 'auto'
+      }}>
+        {stages.map((s) => (
+          <button
+            key={s.id}
+            onClick={() => setActiveStage(s.id)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '10px 20px',
+              border: 'none',
+              borderRadius: 'var(--radius-pill, 100px)',
+              cursor: 'pointer',
+              backgroundColor: activeStage === s.id ? 'var(--ifm-color-primary)' : 'transparent',
+              color: activeStage === s.id ? '#fff' : 'var(--ifm-color-primary)',
+              transition: 'all 0.3s ease',
+              fontWeight: '600',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {s.icon}
+            {s.label}
+          </button>
+        ))}
+      </div>
+
+      {/* 内容展示区 */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+        gap: '20px',
+        animation: 'fadeIn 0.5s ease' 
+      }}>
+        {/* Pain Point 卡片 */}
+        <div style={{
+          padding: '24px',
+          borderRadius: 'var(--radius-card)',
+          background: 'var(--color-surface)',
+          border: '1px solid #ff4d4f22',
+          boxShadow: '0 4px 20px rgba(255, 77, 79, 0.05)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', color: '#cf1322' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Current Friction</span>
+          </div>
+          <p style={{ color: 'var(--color-text-main)', fontSize: '1.05rem', lineHeight: '1.6', margin: 0 }}>
+            {stages[activeStage].before}
+          </p>
+          <div style={{ position: 'absolute', right: '-10px', bottom: '-10px', opacity: 0.03, transform: 'scale(4)' }}>
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          </div>
+        </div>
+
+        {/* Campass Solution 卡片 */}
+        <div style={{
+          padding: '24px',
+          borderRadius: 'var(--radius-card)',
+          background: 'linear-gradient(145deg, var(--color-surface) 0%, rgba(0, 196, 204, 0.05) 100%)',
+          border: '1px solid var(--color-accent)',
+          boxShadow: '0 8px 30px rgba(0, 196, 204, 0.1)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', color: 'var(--color-accent)' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+            <span style={{ fontWeight: '700', letterSpacing: '0.5px', fontSize: '0.9rem', textTransform: 'uppercase' }}>Campass Intervention</span>
+          </div>
+          <p style={{ color: 'var(--color-text-main)', fontSize: '1.05rem', lineHeight: '1.6', margin: 0, fontWeight: '500' }}>
+            {stages[activeStage].after}
+          </p>
+           <div style={{ position: 'absolute', right: '-10px', bottom: '-10px', opacity: 0.05, transform: 'scale(4)', color: 'var(--color-accent)' }}>
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+# User Requirements
 
 ## 🗺️ User Journey Map: The "Solo Quest"
 
-To deeply understand the friction points our target users (Freshmen & Visitors) face, we mapped out a typical campus exploration scenario. The map below contrasts the **current frustrating experience (Grey Area)** with the **enhanced, playful experience (Yellow Area)** brought by **Campass**.
+To deeply understand the friction points our target users face, we mapped the **current frustrating experience (Grey)** against the **enhanced, playful journey (Yellow)** enabled by Campass.
 
-<div className="journey-img-wrap">
+<div style={{ textAlign: 'center', margin: '2rem 0' }}>
   <img 
-    src="/images/user-journey-map.png"
-    alt="Campass User Journey Map"
-    className="journey-img"
+    src="/images/user-journey-map.png" 
+    alt="Campass User Journey Map" 
+    style={{ 
+      borderRadius: 'var(--radius-card, 16px)', 
+      width: '100%',
+      maxWidth: '1000px',
+      filter: 'drop-shadow(0 10px 30px rgba(40, 21, 89, 0.15))'
+    }} 
   />
-  <p className="journey-img-caption">
-    <em>Figure: The Emotional Journey Curve. The grey curve illustrates the emotional drop-offs in the current state, while the yellow curve highlights the sustained engagement achieved through Campass.</em>
-  </p>
 </div>
 
-### 🔍 Journey Breakdown: Pain Points vs. Campass Solutions
+### 🔍 Deep Dive into Experience Stages
+*Select a stage below to explore the transformation in user experience.*
 
-We identified profound emotional drop-offs during the **Navigation**, **Info Reception**, and **Social Sharing** phases. Here is how Campass directly addresses these critical pain points through playful interventions:
-
-<div className="journey-breakdown-list">
-
-  {/* Stage 1 */}
-  <JourneyCard stage="01. Preparation">
-    <BeforeCard 
-      title="Without Campass (Current State)" 
-      text="Unmotivated to explore the massive, generic campus. Feels like a daunting chore rather than an adventure." 
-    />
-    <AfterCard 
-      title="With Campass (Future State)" 
-      text="Taps a mysterious '?' pin on the interactive map, instantly triggering curiosity and starting a gamified quest." 
-    />
-  </JourneyCard>
-
-  {/* Stage 2 */}
-  <JourneyCard stage="02. Navigation">
-    <BeforeCard 
-      title="Without Campass (Current State)" 
-      text="GPS fails indoors; complex buildings (like CB) feel like a frustrating maze, leading to severe anxiety." 
-    />
-    <AfterCard 
-      title="With Campass (Future State)" 
-      text="Answers playful quizzes about XJTLU's philosophy to unlock step-by-step visual clues, turning getting lost into a puzzle." 
-    />
-  </JourneyCard>
-
-  {/* Stage 3 */}
-  <JourneyCard stage="03. Info Reception">
-    <BeforeCard 
-      title="Without Campass (Current State)" 
-      text="Official info plaques are text-heavy, dull, and non-interactive. The user skims and quickly disengages." 
-    />
-    <AfterCard 
-      title="With Campass (Future State)" 
-      text="Taps the physical NFC tag to summon a 3D AR mascot, revealing engaging lore in an immersive, tangible way." 
-    />
-  </JourneyCard>
-
-  {/* Stage 4 */}
-  <JourneyCard stage="04. Social Sharing">
-    <BeforeCard 
-      title="Without Campass (Current State)" 
-      text="Exploring alone feels isolating. Taking normal photos of empty buildings feels uninspiring and lonely." 
-    />
-    <AfterCard 
-      title="With Campass (Future State)" 
-      text="Takes an AR selfie with the mascot and posts it to the geo-locked 'Message Wall' to connect with others instantly." 
-    />
-  </JourneyCard>
-
-  {/* Stage 5 */}
-  <JourneyCard stage="05. Reflection">
-    <BeforeCard 
-      title="Without Campass (Current State)" 
-      text="Leaves the campus lacking a sense of long-term achievement and fails to build community belonging." 
-    />
-    <AfterCard 
-      title="With Campass (Future State)" 
-      text="Claims the newly unlocked mascot badge in the 'Collection' dashboard, feeling proud, accomplished, and connected." 
-    />
-  </JourneyCard>
-
-</div>
-
-{/* 下面是自定义 React 组件，用于在 MDX 中渲染高级卡片效果。你可以直接把这段留在 mdx 文件的末尾或底部 */}
-
-export const JourneyCard = ({ stage, children }) => (
-  <div className="journey-card">
-    <h4 className="journey-card-title">{stage}</h4>
-    <div className="journey-card-content">
-      {children}
-    </div>
-  </div>
-);
-
-export const BeforeCard = ({ title, text }) => (
-  <div className="journey-before-card">
-    <div className="journey-before-title">
-      <span className="journey-before-icon">☹️</span> {title}
-    </div>
-    <p className="journey-card-desc">{text}</p>
-  </div>
-);
-
-export const AfterCard = ({ title, text }) => (
-  <div className="journey-after-card">
-    <div className="journey-after-title">
-      <span className="journey-after-icon">🤩</span> {title}
-    </div>
-    <p className="journey-card-desc">{text}</p>
-  </div>
-);
+<InteractiveUJM />
