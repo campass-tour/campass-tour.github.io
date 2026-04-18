@@ -8,8 +8,8 @@ export const InteractiveCrazy8 = () => {
       id: 'Map',
       title: 'Map',
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>,
-      rejectedIdx: 0,
-      chosenIdx: 1,
+      rejectedIdx: 1,
+      chosenIdx: 0,
       rejectedTitle: "Floating Popovers (Discarded)",
       chosenTitle: "Bottom Drawers (Selected)",
       rejectedReason: "Popovers on mobile caused touch-target errors and visual occlusion, heavily blocking the map area and disrupting the exploration flow.",
@@ -70,9 +70,9 @@ export const InteractiveCrazy8 = () => {
 
   return (
     <>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(180px, 1fr))', gap: '1.2rem', marginTop: '1.5rem', marginBottom: '3rem' }}>
+      <div className="crazy8-scroll-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(180px, 1fr))', gap: '1.2rem', marginTop: '1.5rem', marginBottom: '3rem' }}>
         {columns.map((pair, colIndex) => (
-          <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div key={colIndex} className="crazy8-scroll-col" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {pair.map((src, idx) => {
               const index = colIndex * 2 + idx;
 
