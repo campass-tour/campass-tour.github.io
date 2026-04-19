@@ -1,3 +1,20 @@
+/* Crazy 8 响应式横向滑动 */
+@media (max-width: 800px) {
+  .crazy8-scroll-row {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .crazy8-scroll-col {
+    min-width: 180px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 /* User Journey Map 结构化卡片样式 */
 .journey-breakdown-list {
   display: flex;

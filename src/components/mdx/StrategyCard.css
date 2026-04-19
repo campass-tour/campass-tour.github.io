@@ -1,0 +1,65 @@
+/* Strategy Card Styles */
+.strategy-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.strategy-card {
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card, 0 4px 12px rgba(0,0,0,0.05));
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.strategy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1));
+}
+.strategy-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+  border-bottom: 2px solid var(--button-outline-bg);
+  padding-bottom: 0.75rem;
+}
+.strategy-card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.strategy-card-body p {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-main, #333);
+}
+[data-theme='dark'] .strategy-card-body p {
+  color: var(--color-text-main, #d4d4d4);
+}
+.strategy-section {
+  margin-bottom: 0.75rem;
+}
+.strategy-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.strategy-section.challenge .strategy-label {
+  color: var(--ifm-color-danger, #cf1322);
+}
+.strategy-section.strategy .strategy-label {
+  color: var(--ifm-color-success, #008b91);
+}
+[data-theme='dark'] .strategy-section.challenge .strategy-label {
+  color: var(--ifm-color-danger, #ff4d4f);
+}
+[data-theme='dark'] .strategy-section.strategy .strategy-label {
+  color: var(--ifm-color-success, #00c4cc);
+}
