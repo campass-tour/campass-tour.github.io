@@ -35,6 +35,7 @@ Why stick to this architecture if performance is a challenge? Here is our strate
   <StrategyCard 
     icon="zap"
     title="Quality-Efficiency Trade-off"
+    challenge="Manual AR implementations are often brittle and visually inconsistent; hand-rolled approaches can produce visual artifacts, misalignment, and unreliable behavior across devices."
     strategy="We utilized a dual-engine approach. Three.js handles the 'Logic & Assembly,' while <model-viewer> handles the 'Presentation.' This allows us to leverage Google’s PBR (Physically Based Rendering) engine for industry-grade visual fidelity without building a custom renderer from scratch."
   />
 </div>
@@ -55,7 +56,7 @@ Why stick to this architecture if performance is a challenge? Here is our strate
     color: 'var(--color-text-secondary, #888)', 
     fontSize: '0.9rem', 
     marginTop: '0.5rem' 
-  }}>Client-Side Component Synthesis vs Rendering Engine</div>
+  }}>Client-Side Component Synthesis and Rendering</div>
 </div>
 
 
