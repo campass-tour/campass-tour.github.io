@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layers, Cuboid, Server, Zap } from 'lucide-react';
-import clsx from 'clsx';
-import './StrategyCard.css'; // Let's put specific CSS in its own file or use inline styles? I'll use a module or custom.css
+import './StrategyCard.css';
 
 export interface StrategyCardProps {
   icon: 'layers' | 'cuboid' | 'server' | 'zap';

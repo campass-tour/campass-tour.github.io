@@ -64,20 +64,24 @@ We went through several pivots to balance AR compatibility, platform limits, and
 
 <IterationLog trials={[
   {
-    id: 'Trial 01',
+    id: 'Trial 1',
     title: 'DOM Slot Nesting',
     approach: 'Nesting mascot models within building slots via <model-viewer>.',
     pivot: 'Mascot disappeared in native AR mode. We prioritized the "Playful AR" core experience over simple UI layering.'
   },
   {
-    id: 'Trial 02',
+    id: 'Trial 2',
     title: 'Serverless Backend Compression',
     approach: 'Sending raw 30MB streams to a Node.js API for gltf-pipeline compression.',
     pivot: 'Hit the Vercel 413 Request Entity Too Large error. The 4.5MB payload limit proved to be an insurmountable wall for raw 3D data.',
-    image: '/images/limitations/413.png'
+    image: '/images/limitations/413.png',
+    github: {
+      url: 'https://github.com/campass-tour/campass/tree/compress-model',
+      label: 'compress-model branch'
+    }
   },
   {
-    id: 'Trial 03',
+    id: 'Trial 3',
     title: 'Client-side Draco WASM Compression',
     approach: 'Integrating Google’s Draco encoder on the client side via CDN.',
     pivot: 'Draco only compresses geometry (meshes). Since 90% of our file size comes from Raw Bitmaps (textures), the reduction was negligible, while CPU usage spiked significantly.'
