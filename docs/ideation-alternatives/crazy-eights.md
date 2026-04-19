@@ -41,12 +41,12 @@ export const InteractiveCrazy8 = () => {
       id: 'Profile',
       title: 'Profile',
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>,
-      rejectedIdx: null,
-      chosenIdx: null,
-      rejectedTitle: '',
-      chosenTitle: '',
-      rejectedReason: '',
-      chosenReason: ''
+      rejectedIdx: 7,
+      chosenIdx: 6,
+      rejectedTitle: 'Left Rail Actions (Discarded)',
+      chosenTitle: 'Centered Icon Strip (Selected)',
+      rejectedReason: 'The left rail consumed horizontal space on a narrow mobile screen, making the content cards feel cramped and increasing visual fragmentation.',
+      chosenReason: 'The centered icon strip keeps core actions quick to reach while leaving more width for activity cards, resulting in a cleaner and easier-to-scan profile view.'
     }
   ];
 
