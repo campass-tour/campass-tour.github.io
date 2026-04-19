@@ -58,6 +58,7 @@ const sidebars: SidebarsConfig = {
         'evaluation-reflection/usability-testing',
         'evaluation-reflection/iterative-refinement',
         'evaluation-reflection/final-reflection',
+        'evaluation-reflection/limitation-future-work',
       ],
     },
   ],

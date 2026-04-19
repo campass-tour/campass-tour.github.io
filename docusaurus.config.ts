@@ -186,6 +186,10 @@ const config: Config = {
                 label: 'Final Reflection',
                 to: '/docs/evaluation-reflection/final-reflection',
               },
+              {
+                label: 'Limitations & Future Work',
+                to: '/docs/evaluation-reflection/limitation-future-work',
+              },
             ],
           },
 
