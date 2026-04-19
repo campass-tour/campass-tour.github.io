@@ -2,13 +2,14 @@ import { StrategyCard } from '@site/src/components/mdx/StrategyCard';
 import { IterationLog } from '@site/src/components/mdx/IterationLog';
 import { Rocket, Activity } from 'lucide-react';
 
-# 1. The Performance
+# Limitation
+## 1. The Performance
 
-## 1.1 The Performance Dilemma
+### 1.1 The Performance Dilemma
 
 While our client-side 3D synthesis engine enables a highly modular experience, it creates a significant performance bottleneck. On mobile devices with limited RAM/VRAM, the "Summoning" process (assembly and rendering) can experience stuttering. This is primarily caused by the volume explosion of the final binary blob after Three.js decompressing, merging, and re-exporting 3D assets.
 
-## 1.2 Strategic Rationale
+### 1.2 Strategic Rationale
 
 Why stick to this architecture if performance is a challenge? Here is our strategic rationale, broken down into four core pillars.
 
@@ -50,15 +51,15 @@ Why stick to this architecture if performance is a challenge? Here is our strate
       maxWidth: '800px'
     }} 
   />
-  <p style={{ 
+  <div style={{ 
     color: 'var(--color-text-secondary, #888)', 
     fontSize: '0.9rem', 
     marginTop: '0.5rem' 
-  }}>Client-Side Component Synthesis vs Rendering Engine</p>
+  }}>Client-Side Component Synthesis vs Rendering Engine</div>
 </div>
 
 
-## 1.3 The Iteration Log: Failed Attempts
+### 1.3 The Iteration Log: Failed Attempts
 
 We went through several pivots to balance AR compatibility, platform limits, and mobile performance.
 
@@ -89,7 +90,7 @@ We went through several pivots to balance AR compatibility, platform limits, and
 ]} />
 
 
-## 1.4 Future Roadmap
+### 1.4 Future Roadmap
 
 <div style={{ 
   background: 'var(--button-outline-bg)', 
@@ -112,8 +113,8 @@ We went through several pivots to balance AR compatibility, platform limits, and
   </div>
   <div>
     <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--ifm-color-primary)', fontWeight: 'bold' }}>To overcome the current 4.5MB barrier:</h4>
-    <p style={{ margin: 0, lineHeight: 1.6, opacity: 0.9 }}>
+    <div style={{ margin: 0, lineHeight: 1.6, opacity: 0.9 }}>
       Our next architectural evolution involves migrating to a <strong>Dedicated VPS Environment</strong>. By maintaining a persistent Node.js environment, we can implement real-time server-side texture transcoding (to WebP or KTX2) and Draco mesh compression, serving optimized, ready-to-render assets that significantly reduce mobile memory overhead.
-    </p>
+    </div>
   </div>
 </div>
