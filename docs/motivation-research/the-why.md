@@ -1,8 +1,8 @@
 import { MapPinned, Users, Sparkles, Target } from 'lucide-react';
 
-# 1. The Why
+# The Why
 
-## 1.1 Core Motivation
+## 1. Core Motivation
 
 Our team chose the **Social and Active** track because we observed a recurring issue for new students: campus exploration is often confusing, passive, and emotionally disconnected.
 
@@ -15,12 +15,12 @@ Traditional navigation tools are functionally useful, but they mainly support wa
   border: '1px solid var(--button-outline-bg)',
   background: 'linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(0, 196, 204, 0.08))'
 }}>
-  <p style={{ margin: 0, fontWeight: 700, color: 'var(--ifm-color-primary)' }}>
+  <div style={{ margin: 0, fontWeight: 700, color: 'var(--ifm-color-primary)' }}>
     Key insight: Orientation without engagement does not create connection.
-  </p>
+  </div>
 </div>
 
-## 1.2 Design Direction
+## 2. Design Direction
 
 To address this gap, we reframed exploration as a **playful social journey**, not just a navigation task.
 
@@ -35,7 +35,7 @@ To address this gap, we reframed exploration as a **playful social journey**, no
       <MapPinned size={18} color="var(--ifm-color-primary)" />
       <strong>NFC Check-ins</strong>
     </div>
-    <p style={{ margin: 0, opacity: 0.9 }}>Turn physical campus touchpoints into lightweight, rewarding interactions.</p>
+    <div style={{ margin: 0, opacity: 0.9 }}>Turn physical campus touchpoints into lightweight, rewarding interactions.</div>
   </div>
 
   <div style={{ background: 'var(--button-outline-bg)', padding: '1rem', borderRadius: '14px', border: '1px solid var(--button-outline-bg)' }}>
@@ -43,7 +43,7 @@ To address this gap, we reframed exploration as a **playful social journey**, no
       <Sparkles size={18} color="var(--ifm-color-primary)" />
       <strong>AR Encounters</strong>
     </div>
-    <p style={{ margin: 0, opacity: 0.9 }}>Add playful moments that make places memorable rather than purely functional.</p>
+    <div style={{ margin: 0, opacity: 0.9 }}>Add playful moments that make places memorable rather than purely functional.</div>
   </div>
 
   <div style={{ background: 'var(--button-outline-bg)', padding: '1rem', borderRadius: '14px', border: '1px solid var(--button-outline-bg)' }}>
@@ -51,11 +51,11 @@ To address this gap, we reframed exploration as a **playful social journey**, no
       <Users size={18} color="var(--ifm-color-primary)" />
       <strong>Social Layer</strong>
     </div>
-    <p style={{ margin: 0, opacity: 0.9 }}>Enable students to share discoveries and build community through place-based content.</p>
+    <div style={{ margin: 0, opacity: 0.9 }}>Enable students to share discoveries and build community through place-based content.</div>
   </div>
 </div>
 
-## 1.3 Experience Shift
+## 3. Experience Shift
 
 In our proposed model, users are not just "finding locations"; they are **collecting experiences**.
 
@@ -63,7 +63,7 @@ In our proposed model, users are not just "finding locations"; they are **collec
 - They leave and discover community-generated content.
 - They build personal memories tied to specific campus places.
 
-## 1.4 Expected Outcome
+## 4. Expected Outcome
 
 <div style={{
   background: 'var(--button-outline-bg)',
@@ -84,7 +84,7 @@ In our proposed model, users are not just "finding locations"; they are **collec
   }}>
     <Target size={18} />
   </div>
-  <p style={{ margin: 0, lineHeight: 1.65 }}>
+  <div style={{ margin: 0, lineHeight: 1.65 }}>
     This direction improves navigation efficiency while also supporting <strong>belonging</strong>, <strong>participation</strong>, and stronger first impressions of campus life.
-  </p>
+  </div>
 </div>

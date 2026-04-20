@@ -1,11 +1,22 @@
 /* Strategy Card Styles */
 .strategy-card-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   margin: 2rem 0;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .strategy-card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .strategy-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: var(--color-surface, #fff);
   border: 1px solid var(--button-outline-bg);
   border-radius: var(--radius-card, 16px);
@@ -27,6 +38,7 @@
   color: var(--ifm-color-primary);
   border-bottom: 2px solid var(--button-outline-bg);
   padding-bottom: 0.75rem;
+  flex: 0 0 auto;
 }
 .strategy-card-title {
   margin: 0;
@@ -34,6 +46,11 @@
   font-weight: 700;
   line-height: 1.2;
 }
+.strategy-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
 .strategy-card-body p {
   margin: 0 0 0.5rem;
   font-size: 0.95rem;

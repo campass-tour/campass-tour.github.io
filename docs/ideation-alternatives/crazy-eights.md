@@ -181,11 +181,11 @@ export const InteractiveCrazy8 = () => {
 
 # Crazy 8s Ideation
 
-## Section 1: The Challenge
+## 1. The Challenge
 
 At the early stages of the project, our core interaction dilemma was: **how to seamlessly connect 'minimalist map exploration' with 'deep social/collection features' in a limited space, without breaking the player's immersion?**
 
-## Section 2: The Crazy 8s Process
+## 2. The Crazy 8s Process
 
 To avoid falling into a fixed mindset of a single layout, we broke down the core flow and rapidly generated 8 different interaction prototypes through the **Crazy 8s methodology**. Then we discussed and decided the final rough layout.
 

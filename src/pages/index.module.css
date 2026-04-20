@@ -3,6 +3,30 @@
  * and scoped locally.
  */
 
+:global(:root) {
+  --home-hero-title-size: 4rem;
+  --home-hero-subtitle-size: 1.5rem;
+  --home-hero-subtitle-margin-top: 1rem;
+
+  --home-cta-gap: 1rem;
+  --home-cta-margin-top: 1.25rem;
+  --home-cta-padding-y: 0.85rem;
+  --home-cta-padding-x: 2rem;
+  --home-cta-font-size: 1.1rem;
+  --home-cta-icon-gap: 0.5rem;
+  --home-cta-max-width: 42rem;
+
+  --home-highlights-padding-y: 4rem;
+  --home-highlights-title-size: 2.5rem;
+  --home-highlights-title-margin-bottom: 3rem;
+  --home-highlight-col-padding: 1rem;
+  --home-highlight-card-padding: 2rem;
+  --home-highlight-title-size: 1.5rem;
+  --home-highlight-header-gap: 0.75rem;
+  --home-highlight-header-margin-bottom: 1.2rem;
+  --home-highlight-desc-line-height: 1.6;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -24,13 +48,125 @@
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--home-cta-gap);
   justify-content: center;
   position: relative; /* ensure buttons stay above absolutely-positioned sticker */
   z-index: 2;
+  margin: var(--home-cta-margin-top) auto 0;
+  max-width: var(--home-cta-max-width);
 }
 
+.ctaButton {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: var(--home-cta-icon-gap);
+  padding: var(--home-cta-padding-y) var(--home-cta-padding-x);
+  font-size: var(--home-cta-font-size);
+  line-height: 1.2;
+}
+
+.ctaButtonOutline {
+  background-color: var(--button-outline-bg);
+}
+
+.heroTitle {
+  font-size: var(--home-hero-title-size);
+}
+
+.heroSubtitle {
+  font-size: var(--home-hero-subtitle-size);
+  margin-top: var(--home-hero-subtitle-margin-top);
+}
+
+.highlightsSection {
+  padding: var(--home-highlights-padding-y) 0;
+  background-color: var(--ifm-background-color);
+}
+
+.highlightsTitle {
+  text-align: center;
+  margin-bottom: var(--home-highlights-title-margin-bottom);
+  font-size: var(--home-highlights-title-size);
+}
+
+.highlightsRow {
+  align-items: stretch;
+}
+
+.highlightsCol {
+  padding: var(--home-highlight-col-padding);
+}
+
+.highlightCard {
+  padding: var(--home-highlight-card-padding);
+  border-radius: var(--radius-card, 16px);
+  background-color: var(--button-outline-bg, rgba(255, 255, 255, 0.15));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--button-outline-bg, rgba(255, 255, 255, 0.2));
+  box-shadow: var(--shadow-card, 0 8px 24px rgba(0, 0, 0, 0.05));
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .highlightCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-card-hover, 0 14px 34px rgba(0, 0, 0, 0.12));
+  }
+}
+
+.highlightHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--home-highlight-header-gap);
+  margin-bottom: var(--home-highlight-header-margin-bottom);
+}
+
+.highlightIcon {
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+.highlightTitle {
+  font-size: var(--home-highlight-title-size);
+  margin: 0;
+}
+
+.highlightDesc {
+  color: var(--ifm-color-emphasis-700);
+  line-height: var(--home-highlight-desc-line-height);
+  margin: 0;
+}
+
+@media screen and (max-width: 520px) {
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+:global(html) {
+  /* keep a small amount of breathing room on narrow screens */
+  scroll-padding-top: var(--ifm-navbar-height);
+}
+
+@media screen and (max-width: 996px) {
+  :global(:root) {
+    --home-hero-title-size: 2.6rem;
+    --home-hero-subtitle-size: 1.15rem;
+    --home-highlights-padding-y: 3rem;
+    --home-highlights-title-size: 1.9rem;
+    --home-highlights-title-margin-bottom: 2rem;
+    --home-highlight-card-padding: 1.5rem;
+    --home-highlight-title-size: 1.2rem;
+  }
+}
 
 .heroText {
   text-align: left; 
