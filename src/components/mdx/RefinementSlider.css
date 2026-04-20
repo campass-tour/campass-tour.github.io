@@ -1,0 +1,169 @@
+.refinement-slider-wrapper {
+  background: var(--color-surface);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.refinement-slider-wrapper:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.rs-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--button-outline-bg);
+  background: var(--feedback-user-bg);
+}
+
+.rs-header h5 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.rs-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+  user-select: none;
+  max-height: 50vh; /* limit slider height to half the viewport */
+}
+
+.rs-image-layer.rs-after-layer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rs-image-layer.rs-after-layer img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 50vh; /* ensure after image doesn't exceed half screen */
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.rs-image-layer.rs-before-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rs-image-layer.rs-before-layer img {
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  margin: 0 auto;
+}
+
+.rs-range-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+  margin: 0;
+}
+
+.rs-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #fff;
+  z-index: 5;
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.rs-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.rs-labels {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.rs-label {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.rs-implementation-box {
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-top: 1px solid var(--button-outline-bg);
+}
+
+.rs-implementation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.rs-implementation-header h6 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.rs-implementation-body {
+  color: var(--color-text-main);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.rs-implementation-body p {
+  margin: 0 0 0.5rem 0;
+}
+
+.rs-implementation-body p:last-child {
+  margin: 0;
+}
