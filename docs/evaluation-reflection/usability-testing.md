@@ -2,6 +2,6 @@ import { PerformanceFeedbackPanel } from '@site/src/components/mdx/PerformanceFe
 
 # Usability Testing
 
-## Feedback 1 - Mobile device lag
 
-<PerformanceFeedbackPanel />
+
+

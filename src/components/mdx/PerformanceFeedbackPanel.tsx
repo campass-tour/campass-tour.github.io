@@ -8,9 +8,11 @@ import {
   TimerReset,
   Hourglass,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  Smartphone
 } from 'lucide-react';
 import './PerformanceFeedbackPanel.css';
+import { FeedbackBubble } from './FeedbackBubble';
 
 const rootCauseItems = [
   {
@@ -59,50 +61,20 @@ const solutionItems = [
 
 export const PerformanceFeedbackPanel = () => {
   return (
-    <section className="perf-container">
-      {/* Header Section */}
-      <header className="perf-header">
-        <div className="perf-header-icon">
-          <AlertTriangle size={24} />
-        </div>
-        <div className="perf-header-content">
-          <h4 className="perf-title">Collection Modal Performance</h4>
-          <p className="perf-subtitle">
-            Fixing the 5-10s freeze and browser crashes on mobile devices after unlocking multiple landmarks.
-          </p>
-        </div>
-      </header>
+    <div className="perf-post-mortem-wrapper">
+      {/* 1. User Feedback & Analysis Section using FeedbackBubble */}
+      <FeedbackBubble 
+        avatar={<Smartphone size={24} />}
+        userQuote="Ahhh! It freezes for 5-10 seconds when I click the collection modal on my iPhone! Sometimes my browser just crashes entirely! 😫"
+        userName="Usability Tester (Mobile)"
+        postMortemTitle="Root Cause Analysis"
+        postMortemItems={rootCauseItems}
+      />
 
-      {/* Main Content */}
-      <div className="perf-content">
-        
-        {/* 1. Analysis Section */}
+      {/* 2. Implementation Section (temporarily acting as RefinementSlider layout bottom) */}
+      <section className="perf-container">
         <details className="perf-section" open>
           <summary className="perf-section-header">
-            <span className="section-number">01</span>
-            <span className="section-label">Root Cause Analysis</span>
-            <ChevronRight className="chevron" size={18} />
-          </summary>
-          <div className="perf-analysis-grid">
-            {rootCauseItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.title} className="analysis-item">
-                  <div className="analysis-icon-row">
-                    <Icon size={18} className="text-primary" />
-                    <h6>{item.title}</h6>
-                  </div>
-                  <p>{item.detail}</p>
-                </div>
-              );
-            })}
-          </div>
-        </details>
-
-        {/* 2. Implementation Section */}
-        <details className="perf-section" open>
-          <summary className="perf-section-header">
-            <span className="section-number">02</span>
             <span className="section-label">Engineering Solutions</span>
             <ChevronRight className="chevron" size={18} />
           </summary>
@@ -138,7 +110,7 @@ export const PerformanceFeedbackPanel = () => {
             Future Roadmap <ArrowRight size={16} />
           </a>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };

@@ -8,14 +8,19 @@
   --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.perf-container {
+.perf-post-mortem-wrapper {
+  display: flex;
+  flex-direction: column;
   margin: 2rem 0;
+}
+
+.perf-container {
   background: var(--color-surface, #fff);
   border: 1px solid var(--perf-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  font-family: inherit;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  font-family: var(--font-family-en);
+  box-shadow: var(--shadow-card);
 }
 
 /* Header */
