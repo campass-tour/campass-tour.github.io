@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { Compass, Info } from 'lucide-react';
+import { Compass, Info, CheckCircle, AlertTriangle } from 'lucide-react';
+import './DesignAlternatives.css';
 
 interface Metric {
   label: string;
@@ -15,35 +16,36 @@ interface Option {
   visualSrc: string;
   description: string;
   dilemma: string;
-  metrics: Record<string, number>;
-  verdict: string;
+  metrics?: Record<string, number>;
+  verdict?: string;
   isWinner?: boolean;
+  pros?: string;
+  cons?: string;
 }
 
 interface DesignAlternativesProps {
   title: string;
   intro: string;
-  metricsDef: Array<{ label: string; def: string }>;
+  metricsDef?: Array<{ label: string; def: string }>;
   options: Option[];
+  hideRadar?: boolean;
 }
 
-export default function DesignAlternatives({ title, intro, options, metricsDef }: DesignAlternativesProps) {
+export default function DesignAlternatives({ title, intro, options, metricsDef, hideRadar }: DesignAlternativesProps) {
   const [selectedId, setSelectedId] = useState<string>(options[0].id);
 
   const selectedOption = options.find((opt) => opt.id === selectedId) || options[0];
 
-  // Fixed order for radar chart (Top, Right, Bottom, Left)
-  const metricKeys = ['geo', 'imm', 'dev', 'snr'];
   const labels = ['Geo Accuracy', 'Immersion', 'Dev Eff', 'SNR'];
 
   return (
-    <div className="design-alts-wrapper anim-fade-in" style={{ margin: '3rem 0' }}>
-      <div style={{ marginBottom: '2rem' }}>
-        <h2 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Compass size={28} color="var(--ifm-color-primary)" />
+    <div className="design-alts-wrapper anim-fade-in">
+      <div className="alt-header-container">
+        <h2>
+          <Compass size={28} className="alt-icon-primary" />
           {title}
         </h2>
-        <p style={{ fontSize: '1rem', color: 'var(--color-text-secondary)' }}>{intro}</p>
+        <p className="alt-intro-text">{intro}</p>
       </div>
 
       {/* Floating Cards / Tiles */}
@@ -66,49 +68,67 @@ export default function DesignAlternatives({ title, intro, options, metricsDef }
       </div>
 
       {/* Detail Panel */}
-      <div className="alt-details-panel">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div className={clsx('alt-details-panel', hideRadar && 'alt-details-no-radar')}>
+        <div className="alt-details-content">
           <div>
-            <h3 style={{ color: selectedOption.isWinner ? '#00e5ff' : 'var(--ifm-color-primary)' }}>
+            <h3 className={clsx('alt-details-title', selectedOption.isWinner && 'winner')}>
               {selectedOption.title}
             </h3>
+            
             <p><strong>The Dilemma:</strong> {selectedOption.dilemma}</p>
-            <div style={{ 
-              background: 'var(--color-surface)', 
-              padding: '12px 16px', 
-              borderRadius: '8px',
-              borderLeft: `4px solid ${selectedOption.isWinner ? '#00e5ff' : 'var(--ifm-color-primary)'}` 
-            }}>
-              <strong>Verdict:</strong> {selectedOption.verdict}
+
+            <div className="alt-pros-cons-container">
+              {selectedOption.pros && (
+                <div className="alt-pro-item">
+                  <CheckCircle size={20} className="alt-pro-icon" />
+                  <div><strong>Pros:</strong> {selectedOption.pros}</div>
+                </div>
+              )}
+              {selectedOption.cons && (
+                <div className="alt-con-item">
+                  <AlertTriangle size={20} className="alt-con-icon" />
+                  <div><strong>Cons:</strong> {selectedOption.cons}</div>
+                </div>
+              )}
             </div>
+
+            {selectedOption.verdict && (
+              <div className="alt-verdict-box">
+                <strong>Verdict:</strong> {selectedOption.verdict}
+              </div>
+            )}
           </div>
           
-          <div style={{ marginTop: 'auto' }}>
-            <details style={{ background: 'var(--color-surface)', padding: '10px', borderRadius: '8px', fontSize: '0.9rem' }}>
-              <summary style={{ cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Info size={16} /> Metrics Definition
-              </summary>
-              <ul style={{ marginTop: '10px', paddingLeft: '20px', color: 'var(--color-text-main)' }}>
-                {metricsDef.map((md) => (
-                  <li key={md.label}><strong>{md.label}:</strong> {md.def}</li>
-                ))}
-              </ul>
-            </details>
-          </div>
+          {metricsDef && (
+            <div className="alt-metrics-def-container">
+              <details className="alt-metrics-details">
+                <summary>
+                  <Info size={16} /> Metrics Definition
+                </summary>
+                <ul>
+                  {metricsDef.map((md) => (
+                    <li key={md.label}><strong>{md.label}:</strong> {md.def}</li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          )}
         </div>
 
-        <div className="radar-chart-container">
-          <SimpleRadarChart
-            values={[
-              selectedOption.metrics.geo,
-              selectedOption.metrics.imm,
-              selectedOption.metrics.dev,
-              selectedOption.metrics.snr,
-            ]}
-            labels={labels}
-            isWinner={!!selectedOption.isWinner}
-          />
-        </div>
+        {!hideRadar && selectedOption.metrics && (
+          <div className="radar-chart-container">
+            <SimpleRadarChart
+              values={[
+                selectedOption.metrics.geo,
+                selectedOption.metrics.imm,
+                selectedOption.metrics.dev,
+                selectedOption.metrics.snr,
+              ]}
+              labels={labels}
+              isWinner={!!selectedOption.isWinner}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -124,10 +144,6 @@ function SimpleRadarChart({ values, labels, isWinner }: { values: number[]; labe
   // Calculate points for the polygon (Top, Right, Bottom, Left)
   const getPoint = (val: number, index: number) => {
     const r = val * scale;
-    // index 0 -> top (0, -r)
-    // index 1 -> right (r, 0)
-    // index 2 -> bottom (0, r)
-    // index 3 -> left (-r, 0)
     if (index === 0) return `${center},${center - r}`;
     if (index === 1) return `${center + r},${center}`;
     if (index === 2) return `${center},${center + r}`;
@@ -138,7 +154,7 @@ function SimpleRadarChart({ values, labels, isWinner }: { values: number[]; labe
   const polygonPoints = values.map((v, i) => getPoint(v, i)).join(' ');
 
   return (
-    <svg width="100%" height={size} viewBox={`0 0 ${size} ${size}`} style={{ maxWidth: '400px' }}>
+    <svg width="100%" height={size} viewBox="0 0 300 300" style={{ maxWidth: '400px' }}>
       {/* Background grid (diamonds) */}
       {[2, 4, 6, 8, 10].map((tick) => {
         const r = tick * scale;
@@ -159,9 +175,9 @@ function SimpleRadarChart({ values, labels, isWinner }: { values: number[]; labe
       {/* Data Polygon */}
       <polygon
         points={polygonPoints}
-        fill={isWinner ? 'rgba(0, 229, 255, 0.4)' : 'var(--ifm-color-primary)'}
-        fillOpacity="0.4"
-        stroke={isWinner ? '#00e5ff' : 'var(--ifm-color-primary)'}
+        fill={isWinner ? 'var(--color-winner-bg)' : 'var(--ifm-color-primary)'}
+        fillOpacity={isWinner ? "1" : "0.4"}
+        stroke={isWinner ? 'var(--color-winner)' : 'var(--ifm-color-primary)'}
         strokeWidth="3"
         className={isWinner ? 'pulse-cyan' : ''}
         style={{ transition: 'all 0.4s ease' }}
@@ -177,7 +193,7 @@ function SimpleRadarChart({ values, labels, isWinner }: { values: number[]; labe
             cy={pt[1]} 
             r={5} 
             fill="var(--color-surface)" 
-            stroke={isWinner ? '#00e5ff' : 'var(--ifm-color-primary)'} 
+            stroke={isWinner ? 'var(--color-winner)' : 'var(--ifm-color-primary)'} 
             strokeWidth="2" 
             style={{ transition: 'all 0.4s ease' }}
           />

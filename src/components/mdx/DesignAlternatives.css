@@ -1,0 +1,82 @@
+.design-alts-wrapper {
+  margin: 3rem 0;
+}
+.alt-header-container {
+  margin-bottom: 2rem;
+}
+.alt-header-container h2 {
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+}
+.alt-icon-primary {
+  color: var(--ifm-color-primary);
+}
+.alt-intro-text {
+  font-size: 1rem; 
+  color: var(--color-text-secondary);
+}
+
+.alt-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.alt-details-title {
+  color: var(--ifm-color-primary);
+}
+.alt-details-title.winner {
+  color: var(--color-winner);
+}
+
+.alt-pros-cons-container {
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+  margin: 1rem 0;
+}
+.alt-pro-item, .alt-con-item {
+  display: flex; 
+  gap: 8px; 
+  color: var(--color-text-main);
+}
+.alt-pro-icon {
+  color: var(--color-solution);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.alt-con-icon {
+  color: var(--color-friction);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alt-verdict-box {
+  background: var(--color-surface);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+.alt-metrics-def-container {
+  margin-top: auto;
+}
+.alt-metrics-details {
+  background: var(--color-surface);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.alt-metrics-details summary {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.alt-metrics-details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: var(--color-text-main);
+}

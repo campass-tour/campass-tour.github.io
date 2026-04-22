@@ -62,6 +62,43 @@ We evaluated three distinct map paradigms to serve as the foundation for the Cam
   ]}
 />
 
-:::note Conclusion
-**"We traded perfect precision for absolute focus."**
-:::
+## The Desktop Dilemma: Map Pin Interactions
+
+While our mobile interface successfully utilized a comfortable bottom sheet, designing the desktop interaction for map pins presented a unique challenge. On wide screens, we wanted to display rich location details (AR triggers, clues, achievements) alongside the global Message Wall. However, translating point-of-interest (POI) interactions to a larger canvas quickly led to cluttered interfaces and broken visual flows.
+
+<DesignAlternatives
+  title="Map Pin Interaction on Desktop"
+  intro="Evaluating how to display point-of-interest details on wide screens. Select an option below to view its pros, cons, and dilemma."
+  hideRadar={true}
+  options={[
+    {
+      id: 'pin-option-a',
+      title: 'Option A: The Standard Popover (Only)',
+      visualSrc: '/images/alternatives/mappin/mappin-optiona.png',
+      description: 'A centralized floating card appearing directly over the map.',
+      dilemma: 'It drastically underutilized desktop screen real estate. Furthermore, to keep the user focused, clicking a pin automatically centered it on the screen, which frequently pushed the popover out of the top viewport boundary (Vertical Cropping).',
+      pros: 'Familiar interaction pattern used across most native map applications; it keeps the user\'s eyes anchored close to the geographical context of the pin they just interacted with.',
+      cons: 'Severe vertical cropping issues when centering pins; significantly wastes the horizontal screen real estate available on larger desktop displays.'
+    },
+    {
+      id: 'pin-option-b',
+      title: 'Option B: The Fragmented UI (Popover + Side Drawer)',
+      visualSrc: '/images/alternatives/mappin/mappin-optionb.png',
+      description: 'Keeping the center popover for location details, while simultaneously opening a right-side drawer for the Message Wall.',
+      dilemma: 'Spatial Collision. The floating popover physically overlapped with the side drawer. More critically, it shattered the user\'s visual focus, forcing their eyes to ping-pong between the center popover and the right-hand wall, significantly increasing cognitive load.',
+      pros: 'Aims to fully utilize wide desktop screens by showing both rich location context and uninterrupted social interactions concurrently.',
+      cons: 'Massive cognitive overload from split visual focus; chaotic spatial collisions between the floating popover boundaries and the persistent side drawer.'
+    },
+    {
+      id: 'pin-option-c',
+      title: 'Option C (Our Decision): Architecture Forking & Master-Detail View',
+      visualSrc: '/images/alternatives/mappin/mappin-optionc.png',
+      description: 'Discarding the popover entirely for desktop environments. Clicking a pin now triggers a unified, full-height right sidebar.',
+      dilemma: 'We needed a way to consolidate all location lore, AR summoning buttons, achievements, and real-time whispers without cluttering the map canvas.',
+      pros: 'Clean, distraction-free layout. Unifies all complex contextual functionality into a single, scrollable panel without overlapping map UI or causing eye strain.',
+      cons: 'Increased development overhead. It requires writing distinct rendering logic ("Architecture Forking") for mobile interfaces (bottom sheet) versus desktop interfaces (sidebar).',
+      verdict: 'SELECTED. The Master-Detail Architecture perfectly balanced spatial efficiency with rich storytelling. All location lore, AR buttons, achievements, and whispers are consolidated into this master sidebar.',
+      isWinner: true
+    }
+  ]}
+/>
