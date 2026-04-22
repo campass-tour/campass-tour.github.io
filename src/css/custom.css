@@ -198,6 +198,110 @@
   gap: 20px;
   animation: fadeIn 0.5s ease;
 }
+
+/* --- Design Alternative Cards --- */
+.alt-cards-container {
+  display: flex;
+  gap: 20px;
+  perspective: 1000px;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.alt-card {
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--color-surface, #fff);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  padding: 20px;
+  box-shadow: var(--shadow-card, 0px 4px 12px rgba(0,0,0,0.05));
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+}
+
+.alt-card:hover {
+  transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+  box-shadow: var(--shadow-card-hover, 0px 8px 24px rgba(0,0,0,0.1));
+}
+
+.alt-card.selected {
+  transform: translateZ(20px) scale(1.02);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.alt-card.selected-winner {
+  border-color: #00e5ff;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+.alt-card-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  height: 150px;
+}
+
+.alt-card-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 10px;
+}
+
+.alt-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  flex-grow: 1;
+}
+
+.alt-details-panel {
+  background: var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  padding: 20px;
+  margin-top: 1rem;
+  animation: fadeIn 0.4s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .alt-details-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.radar-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.pulse-cyan {
+  animation: pulseCyanAnim 1.5s infinite alternate;
+}
+
+@keyframes pulseCyanAnim {
+  0% { filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.5)); stroke: #00b8cc; fill: rgba(0, 229, 255, 0.2); }
+  100% { filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.9)); stroke: #00e5ff; fill: rgba(0, 229, 255, 0.4); }
+}
+
+.anim-fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .interactive-ujm-card {
   padding: 24px;
   border-radius: var(--radius-card);
