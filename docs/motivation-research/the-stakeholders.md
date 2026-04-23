@@ -1,8 +1,8 @@
 import { Compass, GraduationCap, Camera, Users } from 'lucide-react';
 
-# 2. The Stakeholders
+# The Stakeholders
 
-## 2.1 Persona Overview
+## 1. Stakeholder Lens
 
 Our design is centered around three core user personas shown in the onboarding flow: **The Explorer**, **The XJTLU Veteran**, and **The Guest**.
 
@@ -20,7 +20,7 @@ Rather than treating all campus visitors as one generic user group, we different
   </p>
 </div>
 
-## 2.2 The Three Stakeholders
+## 2. Persona Segmentation
 
 <div style={{
   display: 'grid',
@@ -68,7 +68,7 @@ Rather than treating all campus visitors as one generic user group, we different
   </div>
 </div>
 
-## 2.3 Why These Personas Matter
+## 3. Strategic Value of Segmentation
 
 These three stakeholder groups shape different design priorities:
 
@@ -78,7 +78,7 @@ These three stakeholder groups shape different design priorities:
 
 By recognizing these differences, we avoid designing a one-size-fits-all experience and instead build a system that responds to different levels of familiarity and motivation.
 
-## 2.4 Design Implication
+## 4. Design Implication
 
 <div style={{
   background: 'var(--button-outline-bg)',
