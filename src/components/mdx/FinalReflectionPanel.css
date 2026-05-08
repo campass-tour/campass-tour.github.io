@@ -1,0 +1,204 @@
+.final-reflection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--color-text-main);
+}
+
+.final-reflection-hero,
+.final-reflection-section,
+.final-reflection-takeaway {
+  background: var(--color-surface);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.final-reflection-hero:hover,
+.final-reflection-section:hover,
+.final-reflection-takeaway:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.final-reflection-hero {
+  background:
+    linear-gradient(135deg, var(--bg-solution), transparent),
+    var(--color-surface);
+}
+
+.final-reflection-kicker,
+.final-reflection-heading,
+.final-reflection-ai-topline,
+.final-reflection-risk,
+.final-reflection-ethic-item {
+  display: flex;
+  align-items: center;
+}
+
+.final-reflection-kicker {
+  gap: 0.5rem;
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.final-reflection-hero h1 {
+  margin: 0 0 0.75rem;
+  color: var(--ifm-color-primary);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  line-height: 1.1;
+}
+
+.final-reflection p {
+  margin: 0;
+  color: var(--color-text-main);
+  line-height: 1.7;
+}
+
+.final-reflection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.final-reflection-heading {
+  gap: 0.65rem;
+  color: var(--ifm-color-primary);
+  border-bottom: 2px solid var(--button-outline-bg);
+  padding-bottom: 0.75rem;
+}
+
+.final-reflection-heading h2,
+.final-reflection-takeaway h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.final-reflection-card-grid,
+.final-reflection-ai-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.final-reflection-card,
+.final-reflection-ai-card {
+  background: var(--button-outline-bg);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card);
+  padding: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.final-reflection-card:hover,
+.final-reflection-ai-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.final-reflection-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: var(--radius-card);
+  color: var(--ifm-color-primary);
+  background: var(--bg-solution);
+}
+
+.final-reflection-card h3,
+.final-reflection-ai-card h3 {
+  margin: 0.8rem 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--ifm-color-primary);
+}
+
+.final-reflection-card p,
+.final-reflection-ai-card p {
+  font-size: 0.95rem;
+}
+
+.final-reflection-risk {
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: var(--bg-friction);
+  border-left: 4px solid var(--color-friction);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+}
+
+.final-reflection-risk svg {
+  color: var(--color-friction-text);
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+}
+
+.final-reflection-ethics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.final-reflection-ethic-item {
+  gap: 0.65rem;
+  background: var(--button-outline-bg);
+  border-radius: var(--radius-card);
+  padding: 0.8rem 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.final-reflection-ethic-item:hover {
+  transform: translateY(-2px);
+}
+
+.final-reflection-ethic-item svg {
+  color: var(--color-solution-text);
+  flex: 0 0 auto;
+}
+
+.final-reflection-ai-topline {
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin-bottom: 0.85rem;
+}
+
+.final-reflection-ai-card h3 {
+  margin: 0 0 0.15rem;
+}
+
+.final-reflection-ai-card span {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.final-reflection-takeaway {
+  border-color: var(--color-solution);
+  background:
+    linear-gradient(135deg, var(--bg-solution), transparent),
+    var(--color-surface);
+}
+
+.final-reflection-takeaway h2 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 640px) {
+  .final-reflection-hero,
+  .final-reflection-section,
+  .final-reflection-takeaway {
+    padding: 1.1rem;
+  }
+
+  .final-reflection-risk {
+    flex-direction: column;
+  }
+}
