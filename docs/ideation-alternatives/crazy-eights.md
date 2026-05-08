@@ -19,23 +19,23 @@ export const InteractiveCrazy8 = () => {
       id: 'Wall',
       title: 'Wall',
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>,
-      rejectedIdx: null,
-      chosenIdx: null,
-      rejectedTitle: '',
-      chosenTitle: '',
-      rejectedReason: '',
-      chosenReason: ''
+      rejectedIdx: 3,
+      chosenIdx: 2,
+      rejectedTitle: 'Split Panel Wall (Discarded)',
+      chosenTitle: 'Single Feed Wall (Selected)',
+      rejectedReason: 'The split panel layout overloaded the mobile screen with competing columns, making posts harder to scan and weakening the sense of a continuous community feed.',
+      chosenReason: 'The single feed wall keeps search, filtering, media, and comments in one clear vertical flow, making place-based messages easier to browse and contribute to on mobile.'
     },
     {
       id: 'Collection',
       title: 'Collection',
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>,
-      rejectedIdx: null,
-      chosenIdx: null,
-      rejectedTitle: '',
-      chosenTitle: '',
-      rejectedReason: '',
-      chosenReason: ''
+      rejectedIdx: 5,
+      chosenIdx: 4,
+      rejectedTitle: 'Static Grid Collection (Discarded)',
+      chosenTitle: 'Progress-led Collection (Selected)',
+      rejectedReason: 'The static grid showed locked items efficiently, but it lacked hierarchy and motivation, making the collection feel like a storage page rather than an active achievement loop.',
+      chosenReason: 'The progress-led layout foregrounds the next unlock, completion status, and reward context, giving users a clearer reason to keep exploring and collecting.'
     },
     {
       id: 'Profile',
