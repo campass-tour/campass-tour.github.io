@@ -8,7 +8,7 @@ Our team chose the **Social and Active** track because we observed a recurring i
 
 Traditional tools help you **find** a room, but they don't help you **feel** like you belong there.
 
-{/* 核心洞察卡片：改用目标样式 - 浅色背景+细边框 */}
+{/* 核心洞察卡片 */}
 <div style={{ 
   background: 'var(--button-outline-bg)', 
   padding: '1.5rem', 
@@ -27,76 +27,13 @@ Traditional tools help you **find** a room, but they don't help you **feel** lik
   </p>
 </div>
 
+import PillarGrid from '@site/src/components/mdx/PillarGrid';
+
 ## 2. Design Direction
 
 To bridge this gap, we reframed exploration as a **playful social journey**. Our strategy focuses on three pillars:
 
-<div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-  gap: '1.5rem',
-  marginTop: '1.5rem'
-}}>
-  {/* Pillar 1 */}
-  <div style={{ 
-    background: 'var(--button-outline-bg)', 
-    padding: '1.5rem', 
-    borderRadius: '20px', 
-    border: '1px solid rgba(var(--ifm-color-primary-rgb), 0.1)',
-    position: 'relative',
-    overflow: 'hidden'
-  }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-      <div style={{ background: 'var(--ifm-color-primary)', padding: '8px', borderRadius: '10px', color: 'white', display: 'flex' }}>
-        <MapPinned size={20} />
-      </div>
-      <strong style={{ fontSize: '1.1rem' }}>NFC Check-ins</strong>
-    </div>
-    <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--ifm-color-content)', margin: 0 }}>
-      Turning physical touchpoints into rewarding interactions. Low-friction entry points for users to start their journey.
-    </p>
-  </div>
-
-{/* Pillar 2 */}
-  <div style={{ 
-    background: 'var(--button-outline-bg)', 
-    padding: '1.5rem', 
-    borderRadius: '20px', 
-    border: '1px solid rgba(var(--ifm-color-primary-rgb), 0.1)',
-    position: 'relative',
-    overflow: 'hidden'
-  }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-      <div style={{ background: 'var(--ifm-color-primary)', padding: '8px', borderRadius: '10px', color: 'white', display: 'flex' }}>
-        <Sparkles size={20} />
-      </div>
-      <strong style={{ fontSize: '1.1rem' }}>AR Encounters</strong>
-    </div>
-    <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--ifm-color-content)', margin: 0 }}>
-      Layering digital wonder onto physical reality. Making campus landmarks memorable through interactive storytelling.
-    </p>
-  </div>
-
-{/* Pillar 3 */}
-  <div style={{ 
-    background: 'var(--button-outline-bg)', 
-    padding: '1.5rem', 
-    borderRadius: '20px', 
-    border: '1px solid rgba(var(--ifm-color-primary-rgb), 0.1)',
-    position: 'relative',
-    overflow: 'hidden'
-  }}>
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-      <div style={{ background: 'var(--ifm-color-primary)', padding: '8px', borderRadius: '10px', color: 'white', display: 'flex' }}>
-        <Users size={20} />
-      </div>
-      <strong style={{ fontSize: '1.1rem' }}>Social Layer</strong>
-    </div>
-    <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--ifm-color-content)', margin: 0 }}>
-      Fostering community through place-based content. Shared discoveries reduce the isolation of a new environment.
-    </p>
-  </div>
-</div>
+<PillarGrid />
 
 ## 3. Experience Shift
 
