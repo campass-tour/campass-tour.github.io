@@ -1,0 +1,273 @@
+.contributions-table-wrapper {
+  margin: 2rem 0;
+  overflow-x: auto;
+  border-radius: var(--radius-card, 16px);
+  box-shadow: var(--shadow-card, 0px 4px 12px rgba(0,0,0,0.05));
+  border: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
+  background: var(--color-surface, #ffffff);
+}
+
+.contributions-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  font-family: inherit;
+}
+
+.contributions-table th,
+.contributions-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
+  border-right: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
+  transition: all 0.3s ease;
+}
+
+.contributions-table th:last-child,
+.contributions-table td:last-child {
+  border-right: none;
+}
+
+.contributions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ct-header-stage {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ifm-color-primary, #281559);
+  background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.5));
+  width: 250px;
+}
+
+.ct-header-person {
+  text-align: center;
+  font-weight: 600;
+  background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.5));
+  color: var(--color-text-main, #1a1a1a);
+}
+
+.ct-row:hover .ct-cell-stage {
+  background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.2));
+}
+
+.ct-cell-stage {
+  font-weight: 500;
+  color: var(--color-text-main, #1a1a1a);
+}
+
+.ct-stage-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ct-stage-label svg {
+  color: var(--ifm-color-primary, #281559);
+}
+
+.ct-cell-task {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.ct-has-tasks {
+  cursor: pointer;
+}
+
+.ct-has-tasks:hover {
+  background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.3));
+}
+
+.ct-cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.ct-circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Heatmap styles based on task count */
+.count-0 {
+  width: 16px;
+  height: 16px;
+  background-color: var(--button-outline-bg, rgba(40, 21, 89, 0.05));
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.count-1 {
+  width: 28px;
+  height: 28px;
+  background-color: var(--ifm-color-primary-lightest, #9573d5);
+  opacity: 0.6;
+}
+
+.count-2 {
+  width: 36px;
+  height: 36px;
+  background-color: var(--ifm-color-primary-light, #3a2173);
+  opacity: 0.8;
+}
+
+.count-3 {
+  width: 44px;
+  height: 44px;
+  background-color: var(--ifm-color-primary, #281559);
+  box-shadow: 0 4px 10px rgba(40, 21, 89, 0.3);
+}
+
+.ct-has-tasks:hover .ct-circle {
+  transform: scale(1.15);
+}
+
+.ct-circle-text {
+  user-select: none;
+}
+
+.ct-tooltip-title {
+  font-weight: 600;
+  color: var(--ifm-color-primary, #281559);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
+}
+
+.ct-tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-surface, #ffffff);
+  border: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
+  box-shadow: var(--shadow-card, 0px 8px 24px rgba(0,0,0,0.15));
+  border-radius: var(--radius-card, 12px);
+  padding: 1rem;
+  z-index: 100;
+  min-width: 260px;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ct-tooltip-bottom {
+  top: 100%;
+  animation: fadeInBottom 0.2s forwards ease-out;
+}
+
+.ct-tooltip-top {
+  bottom: 100%;
+  animation: fadeInTop 0.2s forwards ease-out;
+}
+
+.ct-active .ct-tooltip {
+  pointer-events: auto;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.ct-tooltip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ct-tooltip-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-main, #1a1a1a);
+  line-height: 1.4;
+}
+
+.ct-tooltip-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--ifm-color-primary, #281559);
+}
+
+/* Dark mode tweaks */
+[data-theme='dark'] .contributions-table-wrapper {
+  background: var(--color-surface-dark, #181920);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme='dark'] .ct-header-stage,
+[data-theme='dark'] .ct-header-person {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--ifm-color-primary-lightest, #9573d5);
+}
+[data-theme='dark'] .ct-cell-stage {
+  color: #f5f6fa;
+}
+[data-theme='dark'] .ct-stage-label svg {
+  color: var(--ifm-color-primary-lightest, #9573d5);
+}
+[data-theme='dark'] .contributions-table th,
+[data-theme='dark'] .contributions-table td {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme='dark'] .ct-tooltip {
+  background-color: var(--color-surface-dark, #181920);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme='dark'] .ct-tooltip-list li {
+  color: #f5f6fa;
+}
+[data-theme='dark'] .ct-tooltip-icon {
+  color: var(--ifm-color-primary-lightest, #9573d5);
+}
+[data-theme='dark'] .count-0 {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme='dark'] .count-1 {
+  background-color: var(--ifm-color-primary-light, #3a2173);
+}
+[data-theme='dark'] .count-2 {
+  background-color: var(--ifm-color-primary-lighter, #4d2d8d);
+}
+[data-theme='dark'] .count-3 {
+  background-color: var(--ifm-color-primary-lightest, #9573d5);
+  box-shadow: 0 4px 10px rgba(149, 115, 213, 0.3);
+}
+[data-theme='dark'] .ct-circle-text {
+  color: #fff;
+}
+[data-theme='dark'] .ct-tooltip-title {
+  color: var(--ifm-color-primary-lightest, #9573d5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
