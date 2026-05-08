@@ -1,0 +1,129 @@
+.requirements-grid-root {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.requirement-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--button-outline-bg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-card);
+}
+
+.requirement-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--ifm-color-primary-lightest);
+}
+
+.req-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.req-icon-sphere {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.theme-primary .req-icon-sphere { background: rgba(40, 21, 89, 0.1); color: var(--ifm-color-primary); }
+.theme-accent .req-icon-sphere { background: rgba(0, 196, 204, 0.1); color: var(--color-solution-text); }
+.theme-success .req-icon-sphere { background: rgba(0, 229, 255, 0.1); color: var(--color-winner); }
+
+.req-tag-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--button-outline-bg);
+  color: var(--color-text-secondary);
+}
+
+.req-body {
+  flex-grow: 1;
+}
+
+.req-body h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  color: var(--ifm-color-primary);
+}
+
+.req-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+.req-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--button-outline-bg);
+}
+
+.acceptance-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.theme-primary .acceptance-label { color: var(--ifm-color-primary-light); }
+.theme-accent .acceptance-label { color: var(--color-solution-text); }
+.theme-success .acceptance-label { color: var(--color-winner); }
+
+.req-acceptance {
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.card-glimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.requirement-card:hover .card-glimmer {
+  left: 150%;
+}
+
+@media (max-width: 768px) {
+  .requirements-grid-root {
+    grid-template-columns: 1fr;
+  }
+}
