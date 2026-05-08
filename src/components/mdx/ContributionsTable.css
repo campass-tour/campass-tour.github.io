@@ -99,37 +99,52 @@
   font-weight: bold;
 }
 
-/* Heatmap styles based on task count */
+/* Heatmap styles based on task count (1 to 5+) */
 .count-0 {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background-color: var(--button-outline-bg, rgba(40, 21, 89, 0.05));
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .count-1 {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   background-color: var(--ifm-color-primary-lightest, #9573d5);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .count-2 {
-  width: 36px;
-  height: 36px;
-  background-color: var(--ifm-color-primary-light, #3a2173);
-  opacity: 0.8;
+  width: 30px;
+  height: 30px;
+  background-color: var(--ifm-color-primary-lighter, #4d2d8d);
+  opacity: 0.7;
 }
 
 .count-3 {
+  width: 38px;
+  height: 38px;
+  background-color: var(--ifm-color-primary-light, #3a2173);
+  opacity: 0.85;
+}
+
+.count-4 {
   width: 44px;
   height: 44px;
   background-color: var(--ifm-color-primary, #281559);
-  box-shadow: 0 4px 10px rgba(40, 21, 89, 0.3);
+}
+
+.count-5 {
+  width: 52px;
+  height: 52px;
+  background-color: var(--ifm-color-primary-dark, #210f47);
+  box-shadow: 0 0 15px rgba(40, 21, 89, 0.4);
+  border: 2px solid var(--ifm-color-primary-lightest, #9573d5);
 }
 
 .ct-has-tasks:hover .ct-circle {
   transform: scale(1.15);
+  opacity: 1;
 }
 
 .ct-circle-text {
@@ -255,14 +270,23 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 [data-theme='dark'] .count-1 {
-  background-color: var(--ifm-color-primary-light, #3a2173);
+  background-color: var(--ifm-color-primary-dark, #210f47);
+  opacity: 0.5;
 }
 [data-theme='dark'] .count-2 {
-  background-color: var(--ifm-color-primary-lighter, #4d2d8d);
+  background-color: var(--ifm-color-primary-darker, #1b0c39);
+  opacity: 0.7;
 }
 [data-theme='dark'] .count-3 {
+  background-color: var(--ifm-color-primary, #281559);
+}
+[data-theme='dark'] .count-4 {
+  background-color: var(--ifm-color-primary-light, #3a2173);
+}
+[data-theme='dark'] .count-5 {
   background-color: var(--ifm-color-primary-lightest, #9573d5);
-  box-shadow: 0 4px 10px rgba(149, 115, 213, 0.3);
+  box-shadow: 0 0 15px rgba(149, 115, 213, 0.5);
+  border: 2px solid white;
 }
 [data-theme='dark'] .ct-circle-text {
   color: #fff;

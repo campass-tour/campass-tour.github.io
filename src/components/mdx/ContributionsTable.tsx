@@ -24,12 +24,12 @@ const STAGES = [
 
 const CONTRIBUTIONS = {
   'Qiran Xiao': {
-    1: ['Literature Review', 'Competitor Research', 'Pain Point Identification'],
-    2: ['User Journey Mapping'],
-    3: ['Design System', 'Crazy 8s (map page)'],
-    4: ['System Architecture','AR & 3D Integration', 'Core Logic Implementation', 'DevOps & Deployment'],
-    5: ['3D Custom Asset Design (CB, one-stop)', 'Landmark Lore (CB, one-stop)', 'Quiz & Challenges (CB, one-stop)'],
-    6: ['Feedback Iteration', 'Portfolio Website']
+    1: ['Literature & Competitor Research'],
+    2: ['User Journey Mapping', 'Pain Point Identification','Playful Strategy' ],
+    3: ['Style Guide', 'Crazy 8s (map page)', 'UI Assets'],
+    4: ['System Architecture','Map & Logic Integration', 'AR & 3D Integration', 'NFC & Search Logic', 'DevOps & Deployment'],
+    5: ['3D Custom Asset Design (CB, one-stop)', 'Landmark Lore (CB, one-stop)', 'Quiz & Challenges (CB, one-stop)','Social Seeding(CB, one-stop)','UX Writing'],
+    6: ['Usability Testing Plan','Iterative Refinement', 'Portfolio Website']
   },
   'A': {
     1: [], 2: [], 3: [], 4: [], 5: [], 6: []
@@ -49,7 +49,9 @@ export default function ContributionsTable() {
     if (count === 0) return 'ct-circle count-0';
     if (count === 1) return 'ct-circle count-1';
     if (count === 2) return 'ct-circle count-2';
-    if (count >= 3) return 'ct-circle count-3';
+    if (count === 3) return 'ct-circle count-3';
+    if (count === 4) return 'ct-circle count-4';
+    if (count >= 5) return 'ct-circle count-5';
     return 'ct-circle count-0';
   };
 
