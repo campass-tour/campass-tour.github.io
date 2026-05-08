@@ -13,6 +13,11 @@
 
 <GamificationFeedbackPanel />
 
+## Feedback 4 - Anti-spoiler Gamification Loop
+
+<WallFeedbackPanel />
+
 import { PerformanceFeedbackPanel } from '@site/src/components/mdx/PerformanceFeedbackPanel';
 import { InteractionFeedbackPanel } from '@site/src/components/mdx/InteractionFeedbackPanel';
 import { GamificationFeedbackPanel } from '@site/src/components/mdx/GamificationFeedbackPanel';
+import { WallFeedbackPanel } from '@site/src/components/mdx/WallFeedbackPanel';
