@@ -7,7 +7,7 @@ interface Metric {
   label: string;
   key: string;
   value: number; // 0 to 10
-  icon: JSX.Element;
+  icon: React.ReactElement;
 }
 
 interface Option {
