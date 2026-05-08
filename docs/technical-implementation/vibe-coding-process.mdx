@@ -1,0 +1,27 @@
+---
+sidebar_position: 4
+---
+
+# Vibe Coding Process
+
+Building a complex prototype like this involves more than just manual typing; it requires a fluid, interactive collaboration between humans and AI. We adopted a **“Vibe Coding”** approach—an intuitive, iterative human-AI collaboration workflow that accelerates development from ideation to execution.
+
+import { VibeCodingTimeline } from '@site/src/components/mdx/VibeCodingTimeline';
+
+<VibeCodingTimeline />
+
+## Our Workflow Principles
+
+To maximize efficiency and minimize hallucinations, we adhered to the following strict process:
+
+1. **Idea Validation & Brainstorming**  
+   Before writing any code, we feed our rough ideas and structural concepts into the AI agent. The agent acts as a sounding board, helping us identify logical gaps, resolve edge cases, and define ambiguous requirements. This turns "vibes" into solid specifications.
+
+2. **Architectural Alignment**  
+   Once requirements are clear, we use the agent to analyze the best possible architecture and tech stack tailored to those specific needs (e.g., choosing Next.js for better routing and performance).
+
+3. **Granular Task breakdown (PBI & Tasks)**  
+   We generate a master checklist consisting of High-Level **Product Backlog Items (PBIs)**. Each PBI is then fractured into extremely small, **independently verifiable tasks**. We enforce a rule of tackling only *one task at a time*, constantly verifying the output to avoid compounding errors.
+
+4. **Continuous Learning via "Skills"**  
+   During implementation, there is often repetitive logic, repeated command sequences, or domain-specific architectural rules. Instead of repeatedly prompting the agent, we abstract these into `.md` files inside a `skills` folder. The agent then reads these specialized instructions, permanently upgrading its context awareness for our specific repository.

@@ -21,7 +21,7 @@ export const WallFeedbackPanel = () => {
     <div className="perf-post-mortem-wrapper">
       <FeedbackBubble 
         avatar={<Smartphone size={24} />}
-        userQuote="我才刚玩这个 App，结果点开留言墙的筛选菜单，一下子就把学校里所有隐藏打卡点的名字全看到了！有一种被剧透的扫兴感。"
+        userQuote="I just started using this app, and when I opened the message wall filter menu, I could see the names of all the hidden locations on campus! It completely spoiled the surprise and ruined the fun."
         userName="Beta Tester (Exploration)"
         postMortemTitle="The UX Post-Mortem"
         postMortemItems={diagnosisItems}

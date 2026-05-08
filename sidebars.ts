@@ -49,6 +49,7 @@ const sidebars: SidebarsConfig = {
         'technical-implementation/system-architecture',
         'technical-implementation/high-fi-prototype',
         'technical-implementation/individual-contributions',
+        'technical-implementation/vibe-coding-process',
       ],
     },
     {
