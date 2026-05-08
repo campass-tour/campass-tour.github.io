@@ -13,7 +13,7 @@ interface Metric {
 interface Option {
   id: string;
   title: string;
-  visualSrc: string;
+  visualSrc?: string;
   description: string;
   dilemma: string;
   metrics?: Record<string, number>;
@@ -60,7 +60,7 @@ export default function DesignAlternatives({ title, intro, options, metricsDef, 
             )}
             onClick={() => setSelectedId(opt.id)}
           >
-            <img src={opt.visualSrc} alt={opt.title} className="alt-card-img" />
+            {opt.visualSrc && <img src={opt.visualSrc} alt={opt.title} className="alt-card-img" />}
             <h3 className="alt-card-header">{opt.title}</h3>
             <p className="alt-card-desc">{opt.description}</p>
           </div>

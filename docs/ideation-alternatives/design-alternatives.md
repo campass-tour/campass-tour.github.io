@@ -102,3 +102,44 @@ While our mobile interface successfully utilized a comfortable bottom sheet, des
     }
   ]}
 />
+
+## Post-Collection Retention: The Long-Term Gamification Loop
+
+While the core mechanics successfully guide users through the physical campus, we faced a critical challenge regarding the product lifecycle and long-term user retention.
+
+<DesignAlternatives
+  title="Post-Collection Retention Strategies"
+  intro="Evaluating methods to sustain user engagement after the initial exploration phase. Option C was selected as our final choice."
+  hideRadar={true}
+  options={[
+    {
+      id: 'retention-option-a',
+      title: 'Option A: Pure Achievement Leaderboards',
+      visualSrc: '/images/alternatives/post/leaderboard.webp',
+      description: 'A traditional competitive ranking system based on collection speed and quantity.',
+      dilemma: 'It creates a zero-sum environment. While it motivates a small percentage of highly competitive users, the majority of average users quickly experience burnout or abandon the app when they realize they cannot reach the top tier.',
+      pros: 'Standard game design pattern that is easy to implement; provides strong short-term incentives for competitive players.',
+      cons: 'Leads to unhealthy competition (involution) and high abandonment rates among casual players once the leaderboards stabilize.'
+    },
+    {
+      id: 'retention-option-b',
+      title: 'Option B: Virtual Title System',
+      visualSrc: '/images/alternatives/post/title.png',
+      description: 'Awarding static digital badges or titles (e.g., "Campus Explorer") upon completing milestones.',
+      dilemma: 'The incentive effect is extremely limited. Once a title is acquired, there is no ongoing utility or dynamic interaction associated with it, failing to justify prolonged app usage.',
+      pros: 'Low development cost; provides a clear, recognizable milestone for users to achieve.',
+      cons: 'Static rewards suffer from rapid novelty decay. They offer no continuous engagement loop or means of expressive personalization.'
+    },
+    {
+      id: 'retention-option-c',
+      title: 'Option C (Our Decision): Cross-module Token Economy',
+      visualSrc: '/images/alternatives/post/wardrobe.png',
+      description: 'Connecting the social Message Wall with the collection system: "Likes" received on the wall are converted into a virtual currency ("Campass Credit") used to purchase accessories in a 3D Avatar Studio.',
+      dilemma: 'We needed to solve the fatal "Motivation Drop." Once freshmen collect all 12 locations, a pure check-in app becomes a zombie app. We had to find a way to transition short-term instrumental check-in behavior into long-term community UGC (User Generated Content) participation.',
+      pros: 'HCI Rationale (Academic Value): Aligns perfectly with "Self-Determination Theory." We transformed vanity metrics (likes) into substantive resources for "Self-Expression." The avatar outfits are displayed globally alongside user posts, creating a self-sustaining loop of content creation, social validation, and personalized reward.',
+      cons: 'Significant development complexity requiring an integrated economy system, 3D model rendering, and seamless cross-module state management.',
+      verdict: 'SELECTED. The Cross-module Token Economy successfully bridges the gap between physical exploration and digital social presence, ensuring long-term community vitality.',
+      isWinner: true
+    }
+  ]}
+/>
