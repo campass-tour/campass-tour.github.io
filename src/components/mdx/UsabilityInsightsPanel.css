@@ -1,0 +1,199 @@
+.usability-insights-root {
+  margin: 2.5rem 0;
+  font-family: var(--font-family-en, inherit);
+}
+
+.insights-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.insight-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--button-outline-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill, 100px);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.insight-tab-btn:hover {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+}
+
+.insight-tab-btn.active {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(40, 21, 89, 0.2);
+}
+
+[data-theme='dark'] .insight-tab-btn.active {
+  background: var(--ifm-color-primary-light);
+  color: var(--ifm-color-primary-darkest);
+  box-shadow: 0 6px 16px rgba(187, 166, 243, 0.2);
+}
+
+.insight-content-area {
+  position: relative;
+  min-height: 280px;
+}
+
+.insight-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--button-outline-bg);
+  border-radius: var(--radius-card, 16px);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.insight-card.visible {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  box-shadow: var(--shadow-card-hover);
+}
+
+.insight-card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.insight-card-header h3 {
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 0;
+  color: var(--ifm-color-primary);
+  border-bottom: 2px solid var(--button-outline-bg);
+  padding-bottom: 0.5rem;
+}
+
+.insight-grid {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .insight-grid {
+    flex-direction: column;
+  }
+}
+
+.insight-problem-box,
+.insight-solution-box {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.insight-problem-box {
+  background: var(--bg-friction);
+  border: 1px solid rgba(255, 77, 79, 0.1);
+}
+
+.insight-solution-box {
+  background: var(--bg-solution);
+  border: 1px solid rgba(0, 196, 204, 0.15);
+}
+
+.insight-box-label {
+  position: absolute;
+  top: -12px;
+  left: 1.5rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.insight-box-label.friction {
+  background: var(--color-friction);
+  color: #fff;
+}
+
+.insight-box-label.solution {
+  background: var(--color-solution);
+  color: #fff;
+}
+
+.insight-problem-box p,
+.insight-solution-box p {
+  margin: 0;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+.refinement-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.25rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.refinement-link-btn:hover {
+  background: var(--ifm-color-primary-light);
+  transform: translateX(4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .refinement-link-btn {
+  background: var(--ifm-color-primary-light);
+  color: var(--ifm-color-primary-darkest) !important;
+}
+
+.solution-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-solution-text);
+  margin-top: 0.5rem;
+}
+
+.solution-title h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.insight-arrow {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .insight-arrow {
+    transform: rotate(90deg);
+  }
+}

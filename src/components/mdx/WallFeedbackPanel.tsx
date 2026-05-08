@@ -22,7 +22,7 @@ export const WallFeedbackPanel = () => {
       <FeedbackBubble 
         avatar={<Smartphone size={24} />}
         userQuote="I just started using this app, and when I opened the message wall filter menu, I could see the names of all the hidden locations on campus! It completely spoiled the surprise and ruined the fun."
-        userName="Beta Tester (Exploration)"
+        userName="Usability Tester (Exploration)"
         postMortemTitle="The UX Post-Mortem"
         postMortemItems={diagnosisItems}
       />
