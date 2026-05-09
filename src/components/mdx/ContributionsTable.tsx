@@ -39,8 +39,13 @@ const CONTRIBUTIONS = {
     5: ['3D Custom Asset Design (SB, EB)', 'Landmark Lore (SB, EB)', 'Quiz & Challenges (SB, EB)', 'Social Seeding (SB, EB)', 'UX Writing'],
     6: ['Iterative Refinement']
   },
-  'B': {
-    1: [], 2: [], 3: [], 4: [], 5: [], 6: []
+  'Keyao Li': {
+    1: ['Literature & Competitor Research','The Gap Analysis','Evidence of Life Collection','Persona Design'],
+    2: ['Playful Strategy','Pain Point Identification'],
+    3: ['Crazy 8s (profile page)','Component Design (Figma)','Interactive Prototyping (Figma)','UI Assets'],
+    4: ['Map & Logic Integration','DevOps & Deployment'],
+    5: ['3D Custom Asset Design(FB, GYM)','Landmark Lore(FB, GYM)','Quiz Design(FB, GYM)','Social Seeding(FB, GYM)','UX Writing'],
+    6: ['Video Production','Usability Testing','Portfolio Website']
   },
   'C': {
     1: [], 2: [], 3: [], 4: [], 5: [], 6: []
