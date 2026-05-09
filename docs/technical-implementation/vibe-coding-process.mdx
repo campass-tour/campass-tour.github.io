@@ -25,3 +25,90 @@ To maximize efficiency and minimize hallucinations, we adhered to the following 
 
 4. **Continuous Learning via "Skills"**  
    During implementation, there is often repetitive logic, repeated command sequences, or domain-specific architectural rules. Instead of repeatedly prompting the agent, we abstract these into `.md` files inside a `skills` folder. The agent then reads these specialized instructions, permanently upgrading its context awareness for our specific repository.
+## AI Log
+
+### 1. Global Standard: Code Evolution Slider
+
+**Design Core:** Demonstrates how we transformed AI's initial output from "one-off toys" to a "maintainable system" using our No Hard-coding Policy.
+
+import { CodeEvolutionSlider } from '@site/src/components/mdx/CodeEvolutionSlider';
+
+<CodeEvolutionSlider />
+
+### 2. Practice: P-O-A Interactive Logs
+
+#### Case A: Responsive Layout & Navigation Strategy (3/28)
+<details>
+<summary><strong>View P-O-A Details</strong></summary>
+
+- **P (Prompt):** "Build a responsive base layout (MainLayout). Use a sticky Bottom Navigation bar for Mobile and a Top Navigation bar for Desktop/Tablet. Active tab should use `--color-primary`."
+- **O (Outcome):** AI mixed desktop and mobile navigation logic into a single monolithic component, causing layout flickering during window resizing and incorrect active state synchronization.
+- **A (Action):** **[Physical Isolation]** Refactored the layout into separate `MobileNav` and `DesktopNav` components. Used Tailwind `sm:hidden` and `hidden sm:flex` for strict physical isolation, ensuring zero CSS interference between device modes.
+
+</details>
+
+#### Case B: Scalable Map & GPS Simulation (3/30)
+<details>
+<summary><strong>View P-O-A Details</strong></summary>
+
+- **P (Prompt):** "Implement a responsive map container supporting pan and zoom. Add a navigation pointer with a breathing light pulse. Place a blue dot at exactly 23% Left, 25% Top."
+- **O (Outcome):** The blue dot offset incorrectly when zooming because the AI calculated its position relative to the viewport instead of the map's coordinate system.
+- **A (Action):** **[Coordinate Transformation]** Modified the CSS DOM structure to place the blue dot inside a dedicated "Marker Container" that shares the exact same `transform-origin` as the map image, anchoring the point regardless of scale level.
+
+</details>
+
+#### Case C: NFC/URL Trigger Logic & Persistence (3/31)
+<details>
+<summary><strong>View P-O-A Details</strong></summary>
+
+- **P (Prompt):** "Refactor the check-in flow to trigger via URL parameters (?checkin=xxx). Validate IDs, save to localStorage, and ensure the modal displays correct location data."
+- **O (Outcome):** AI provided a basic `useEffect` listener, but failed to clean the URL. This caused the "Success Modal" to pop up repeatedly every time the user refreshed the page.
+- **A (Action):** **[Logic Correction]** Integrated `window.history.replaceState` to clear URL parameters immediately after a successful check-in. Adhered to human-centered computing principles by ensuring "single-trigger" feedback.
+
+</details>
+
+#### Case D: 3D Mascot Dynamic Loading System (3/31)
+<details>
+<summary><strong>View P-O-A Details</strong></summary>
+
+- **P (Prompt):** "Extract logic to dynamically generate 'success checkin' text. For 3D models, use `id-model.glb` format from assets. Fallback to `default-model.glb`."
+- **O (Outcome):** The AI generated a massive, hard-coded `if-else` tree to match IDs to files. This was unmaintainable and would break as soon as more locations were added.
+- **A (Action):** **[Architecture Refactoring]** Discarded the hard-coded logic. Designed a dynamic path mapping scheme (`${id}-model.glb`) and established a `location.ts` configuration dictionary as a single source of truth.
+
+</details>
+
+#### Case E: AR Interaction & MapPin States (3/31)
+<details>
+<summary><strong>View P-O-A Details</strong></summary>
+
+- **P (Prompt):** "Design ARContainer, MapPin (Locked/Available/Captured states), and CaptureShutter. Break down into small reusable components with TS."
+- **O (Outcome):** AI used hard-coded hex colors and inconsistent padding, ignoring the previously established design system variables.
+- **A (Action):** **[Design System Enforcement]** Replaced all inline styles with CSS variables (`var(--color-primary)`, `var(--color-accent)`). Abstracted the state logic into a `PinState` type to ensure type safety across the AR scene.
+
+</details>
+
+### 3. Additional Modular Logs (Collapsed)
+
+<details>
+<summary><strong>View Full History</strong></summary>
+
+- **[3/30] Collection Components:**
+  - **O:** Progress bar width transition was jerky.
+  - **A:** Added `transition: width 0.5s ease-in-out` and synchronized with state-batching.
+- **[4/01] Polaroid Wall (Memory Page):**
+  - **O:** Masonry layout collapsed when images were loading.
+  - **A:** Introduced `aspect-ratio` placeholders to reserve vertical space before image bytes arrived.
+- **[4/05] Discovery Accordion Clues:**
+  - **O:** Unlocked items didn't auto-expand, requiring redundant clicks.
+  - **A:** Implemented "Linked Expansion" logic where Panel 2 auto-expands upon Panel 1 completion.
+- **[4/05] Echo Drawer (Location Messaging):**
+  - **O:** Map pins became unresponsive while the drawer was open.
+  - **A:** Adjusted z-index layering and added a partial backdrop filter to maintain map interactivity.
+- **[Profile] Stats Dashboard:**
+  - **O:** Stats used emojis which looked unprofessional.
+  - **A:** Replaced with Lucide-React SVG icons and added a "Purple Glow" status indicator for the user avatar.
+- **[Fitting Room] 3D Wardrobe Stage:**
+  - **O:** Coin balance didn't update visually during purchases.
+  - **A:** Added a Framer Motion count-up animation and a "Pill" bounce effect on balance changes.
+
+</details>
