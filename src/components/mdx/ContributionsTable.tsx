@@ -31,8 +31,13 @@ const CONTRIBUTIONS = {
     5: ['3D Custom Asset Design (CB, one-stop)', 'Landmark Lore (CB, one-stop)', 'Quiz & Challenges (CB, one-stop)','Social Seeding(CB, one-stop)','UX Writing'],
     6: ['Usability Testing Plan','Iterative Refinement', 'Portfolio Website']
   },
-  'A': {
-    1: [], 2: [], 3: [], 4: [], 5: [], 6: []
+  'Ling Xu': {
+    1: ['Literature & Competitor Research', 'Questionnaire Design & User Survey', 'User Interview Recording & Insight Collection'],
+    2: ['Design Solution Development', 'Playful Strategy'],
+    3: ['Crazy 8s (collection page)', 'UI Assets', '2D Icon Clue Design'],
+    4: ['AR & 3D Integration', 'DevOps & Deployment'],
+    5: ['3D Custom Asset Design (SB, EB)', 'Landmark Lore (SB, EB)', 'Quiz & Challenges (SB, EB)', 'Social Seeding (SB, EB)', 'UX Writing'],
+    6: ['Iterative Refinement']
   },
   'B': {
     1: [], 2: [], 3: [], 4: [], 5: [], 6: []
