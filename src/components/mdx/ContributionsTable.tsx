@@ -34,10 +34,10 @@ const CONTRIBUTIONS = {
   'Ling Xu': {
     1: ['Literature & Competitor Research', 'Questionnaire Design & User Survey', 'User Interview Recording & Insight Collection'],
     2: ['Design Solution Development', 'Playful Strategy'],
-    3: ['Crazy 8s (collection page)', 'UI Assets', '2D Icon Clue Design'],
+    3: ['Crazy 8s (collection page)', 'Interactive Prototyping (Figma)', 'UI Assets', '2D Icon Clue Design'],
     4: ['AR & 3D Integration', 'DevOps & Deployment'],
     5: ['3D Custom Asset Design (SB, EB)', 'Landmark Lore (SB, EB)', 'Quiz & Challenges (SB, EB)', 'Social Seeding (SB, EB)', 'UX Writing'],
-    6: ['Iterative Refinement']
+    6: ['Iterative Refinement', 'Portfolio Website', 'Video Voiceover Production']
   },
   'Keyao Li': {
     1: ['Literature & Competitor Research','The Gap Analysis','Evidence of Life Collection','Persona Design'],
