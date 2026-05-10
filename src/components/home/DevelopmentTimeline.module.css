@@ -1,0 +1,596 @@
+.timelineSection {
+  position: relative;
+  isolation: isolate;
+  padding: 5.75rem 0 6.25rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(157, 122, 235, 0.2), transparent 26rem),
+    radial-gradient(circle at 82% 18%, rgba(111, 75, 216, 0.14), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, #fbf8ff 46%, #ffffff 100%);
+}
+
+.timelineSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(92, 55, 180, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 55, 180, 0.045) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: linear-gradient(180deg, transparent, #000 14%, #000 84%, transparent);
+}
+
+.timelineSection::after {
+  content: '';
+  position: absolute;
+  inset: 5.5rem max(1rem, calc((100vw - 1160px) / 2)) auto;
+  z-index: -1;
+  height: 18rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(111, 75, 216, 0.1), transparent);
+  filter: blur(34px);
+  pointer-events: none;
+}
+
+.sectionHeader {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.95rem;
+  padding: 0.36rem 0.82rem;
+  border: 1px solid rgba(92, 55, 180, 0.18);
+  border-radius: var(--radius-pill, 100px);
+  background: rgba(255, 255, 255, 0.76);
+  color: #5d45a8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 26px rgba(40, 21, 89, 0.06);
+  backdrop-filter: blur(14px);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #24105f;
+  font-size: clamp(2.15rem, 4.8vw, 3.55rem);
+  line-height: 1.04;
+}
+
+.sectionSubtitle {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.roadmapPanel {
+  --timeline-progress: 100%;
+  position: relative;
+  margin: 0 auto 2.2rem;
+  max-width: 1120px;
+  padding: 1.15rem 1.35rem 1.35rem;
+  border: 1px solid rgba(92, 55, 180, 0.14);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(247, 243, 255, 0.72)) padding-box,
+    linear-gradient(135deg, rgba(111, 75, 216, 0.18), rgba(255, 255, 255, 0.42), rgba(92, 55, 180, 0.14)) border-box;
+  box-shadow: 0 22px 56px rgba(40, 21, 89, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.phaseRail {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.phaseLabel {
+  min-height: 2.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(92, 55, 180, 0.11);
+  border-radius: var(--radius-pill, 100px);
+  background: rgba(255, 255, 255, 0.56);
+  color: #6f5aa7;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.24s ease,
+    color 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.phaseLabelActive {
+  transform: translateY(-1px);
+  border-color: rgba(111, 75, 216, 0.26);
+  background: linear-gradient(135deg, #ffffff, #f0eafd);
+  color: #281559;
+  box-shadow: 0 10px 24px rgba(40, 21, 89, 0.1);
+}
+
+.roadmapTrack {
+  position: relative;
+  padding: 2.25rem 0 1.4rem;
+}
+
+.trackLine {
+  position: absolute;
+  top: 3.35rem;
+  left: 3.1rem;
+  right: 3.1rem;
+  height: 8px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(111, 75, 216, 0.08), rgba(111, 75, 216, 0.14)),
+    rgba(92, 55, 180, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 55, 180, 0.08),
+    0 0 28px rgba(111, 75, 216, 0.12);
+  overflow: hidden;
+}
+
+.trackGlow {
+  width: var(--timeline-progress);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #281559 0%, #6f4bd8 58%, #c7b7f5 100%);
+  box-shadow: 0 0 20px rgba(111, 75, 216, 0.46);
+  transition: width 0.3s ease;
+}
+
+.nodeRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.timelineNode {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  border: 0;
+  background: transparent;
+  color: #6f5aa7;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+}
+
+.nodeNumber {
+  position: relative;
+  z-index: 1;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(92, 55, 180, 0.18);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, #ffffff, #f3edff 58%, #e3d8fb 100%);
+  color: #5d45a8;
+  font-size: 0.9rem;
+  font-weight: 900;
+  box-shadow:
+    0 9px 24px rgba(40, 21, 89, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    background 0.24s ease,
+    color 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.timelineNodeComplete .nodeNumber {
+  border-color: rgba(111, 75, 216, 0.32);
+  color: #281559;
+}
+
+.timelineNodeActive .nodeNumber,
+.timelineNode:hover .nodeNumber,
+.timelineNode:focus-visible .nodeNumber {
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(111, 75, 216, 0.62);
+  background: radial-gradient(circle at 34% 28%, #ffffff, #9d7aeb 54%, #281559 100%);
+  color: #ffffff;
+  box-shadow:
+    0 0 0 7px rgba(111, 75, 216, 0.1),
+    0 0 30px rgba(111, 75, 216, 0.32),
+    0 18px 30px rgba(40, 21, 89, 0.2);
+}
+
+.nodeWeek {
+  max-width: 4.8rem;
+  color: #705ab0;
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.24s ease;
+}
+
+.timelineNodeActive .nodeWeek,
+.timelineNode:hover .nodeWeek,
+.timelineNode:focus-visible .nodeWeek {
+  color: #281559;
+}
+
+.cardsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.05rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.timelineCard {
+  position: relative;
+  min-width: 0;
+  outline: none;
+  cursor: pointer;
+  animation: cardEnter 0.48s ease both;
+  animation-delay: var(--card-delay);
+}
+
+.cardChrome {
+  min-height: 23.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(252, 250, 255, 0.86)) padding-box,
+    linear-gradient(135deg, rgba(92, 55, 180, 0.12), rgba(255, 255, 255, 0.7), rgba(92, 55, 180, 0.1)) border-box;
+  box-shadow: 0 14px 34px rgba(40, 21, 89, 0.065);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.cardChrome::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(111, 75, 216, 0.12), transparent 35%),
+    radial-gradient(circle at 86% 10%, rgba(157, 122, 235, 0.16), transparent 8rem);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.timelineCard:hover .cardChrome,
+.timelineCard:focus-visible .cardChrome,
+.timelineCardActive .cardChrome {
+  transform: translateY(-7px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(249, 246, 255, 0.93)) padding-box,
+    linear-gradient(135deg, #6f4bd8, rgba(199, 183, 245, 0.86), #281559) border-box;
+  box-shadow:
+    0 24px 52px rgba(40, 21, 89, 0.15),
+    0 0 30px rgba(111, 75, 216, 0.14);
+}
+
+.timelineCard:hover .cardChrome::before,
+.timelineCard:focus-visible .cardChrome::before,
+.timelineCardActive .cardChrome::before {
+  opacity: 1;
+}
+
+.cardTopline,
+.cardTitle,
+.cardSummary,
+.deliverablesBlock,
+.tagRow {
+  position: relative;
+  z-index: 1;
+}
+
+.cardTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.95rem;
+}
+
+.weekPill,
+.phasePill,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  border-radius: var(--radius-pill, 100px);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.weekPill {
+  padding: 0.22rem 0.62rem;
+  border: 1px solid rgba(111, 75, 216, 0.18);
+  background: rgba(111, 76, 255, 0.08);
+  color: #5d45a8;
+}
+
+.phasePill {
+  padding: 0.22rem 0.58rem;
+  border: 1px solid rgba(92, 55, 180, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  color: #705ab0;
+}
+
+.cardTitle {
+  margin: 0;
+  color: #24105f;
+  font-size: 1.08rem;
+  line-height: 1.32;
+}
+
+.cardSummary {
+  margin: 0.75rem 0 1rem;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.deliverablesBlock {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(92, 55, 180, 0.11);
+}
+
+.deliverablesTitle {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #24105f;
+  font-size: 0.78rem;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.deliverablesList {
+  display: grid;
+  gap: 0.32rem;
+  margin: 0;
+  padding-left: 1.05rem;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.86rem;
+  line-height: 1.38;
+}
+
+.deliverableOptional {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-0.2rem);
+  transition:
+    max-height 0.25s ease,
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.timelineCard:hover .deliverableOptional,
+.timelineCard:focus-within .deliverableOptional,
+.deliverableVisible {
+  max-height: 3rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-top: 0.95rem;
+}
+
+.tag {
+  padding: 0.18rem 0.5rem;
+  border: 1px solid rgba(92, 55, 180, 0.12);
+  background: rgba(247, 243, 255, 0.82);
+  color: #5d45a8;
+}
+
+.mobileMarker {
+  display: none;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cardChrome {
+    min-height: 21rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .timelineSection {
+    padding: 4rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .roadmapPanel {
+    display: none;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-left: 2.45rem;
+  }
+
+  .cardsGrid::before {
+    content: '';
+    position: absolute;
+    top: 1.3rem;
+    bottom: 1.3rem;
+    left: 1.05rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #6f4bd8, #c7b7f5);
+    box-shadow: 0 0 18px rgba(111, 75, 216, 0.26);
+  }
+
+  .timelineCard {
+    position: relative;
+  }
+
+  .mobileMarker {
+    position: absolute;
+    top: 1.15rem;
+    left: -2.55rem;
+    z-index: 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(111, 75, 216, 0.32);
+    border-radius: 50%;
+    background: #ffffff;
+    color: #281559;
+    font-size: 0.78rem;
+    font-weight: 900;
+    box-shadow: 0 0 18px rgba(111, 75, 216, 0.18);
+  }
+
+  .timelineCardActive .mobileMarker,
+  .timelineCard:hover .mobileMarker,
+  .timelineCard:focus-visible .mobileMarker {
+    background: #281559;
+    color: #ffffff;
+    box-shadow: 0 0 0 6px rgba(111, 75, 216, 0.09), 0 0 22px rgba(111, 75, 216, 0.28);
+  }
+
+  .cardChrome {
+    min-height: 0;
+    padding: 1rem;
+    border-radius: 17px;
+  }
+
+  .deliverableOptional {
+    max-height: 3rem;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cardsGrid {
+    padding-left: 2.1rem;
+  }
+
+  .mobileMarker {
+    left: -2.25rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .cardTopline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+}
+
+[data-theme='dark'] .timelineSection {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(157, 122, 235, 0.18), transparent 26rem),
+    radial-gradient(circle at 82% 18%, rgba(111, 75, 216, 0.15), transparent 28rem),
+    linear-gradient(180deg, #18171d 0%, #1f1a2d 48%, #18171d 100%);
+}
+
+[data-theme='dark'] .timelineSection::before {
+  background-image:
+    linear-gradient(rgba(237, 230, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 230, 252, 0.045) 1px, transparent 1px);
+}
+
+[data-theme='dark'] .sectionTitle,
+[data-theme='dark'] .timelineNodeActive .nodeWeek,
+[data-theme='dark'] .timelineNode:hover .nodeWeek,
+[data-theme='dark'] .timelineNode:focus-visible .nodeWeek,
+[data-theme='dark'] .cardTitle,
+[data-theme='dark'] .deliverablesTitle {
+  color: #ede6fc;
+}
+
+[data-theme='dark'] .roadmapPanel,
+[data-theme='dark'] .phaseLabel,
+[data-theme='dark'] .cardChrome {
+  background:
+    linear-gradient(180deg, rgba(31, 33, 40, 0.86), rgba(31, 28, 43, 0.8)) padding-box,
+    linear-gradient(135deg, rgba(157, 122, 235, 0.22), rgba(255, 255, 255, 0.04), rgba(157, 122, 235, 0.14)) border-box;
+}
+
+[data-theme='dark'] .phaseLabelActive {
+  color: #ede6fc;
+  background: linear-gradient(135deg, rgba(49, 42, 68, 0.94), rgba(66, 51, 101, 0.8));
+}
+
+[data-theme='dark'] .timelineCard:hover .cardChrome,
+[data-theme='dark'] .timelineCard:focus-visible .cardChrome,
+[data-theme='dark'] .timelineCardActive .cardChrome {
+  background:
+    linear-gradient(180deg, rgba(38, 34, 52, 0.96), rgba(31, 28, 43, 0.92)) padding-box,
+    linear-gradient(135deg, #9d7aeb, rgba(199, 183, 245, 0.72), #5d4291) border-box;
+}
+
+[data-theme='dark'] .nodeNumber,
+[data-theme='dark'] .mobileMarker {
+  background: radial-gradient(circle at 35% 28%, #46365f, #2a2438 68%, #1f1a2d 100%);
+  color: #d6c6fa;
+}
+
+[data-theme='dark'] .weekPill,
+[data-theme='dark'] .phasePill,
+[data-theme='dark'] .tag {
+  background: rgba(157, 122, 235, 0.11);
+  color: #d6c6fa;
+}
