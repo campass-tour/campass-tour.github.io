@@ -7,6 +7,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import { Box, Compass, Fingerprint, MessageCircle, Play } from 'lucide-react';
 
+import DevelopmentTimeline from '../components/home/DevelopmentTimeline';
 import styles from './index.module.css';
 
 function HomepageHeader() {
@@ -112,6 +113,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <ExperienceHighlights />
+        <DevelopmentTimeline />
       </main>
     </Layout>
   );
