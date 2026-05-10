@@ -6,4 +6,4 @@ To be considered truly **Playful**, the system must satisfy all 4 core requireme
 
 <RequirementsGrid />
 
-For the full coursework traceability chain, see the [Requirement-to-Evaluation Alignment](./alignment-matrix), where each **R1-R4** requirement is mapped to a design goal, system feature, prototype evidence, and usability evaluation task.
+For the coursework review, see the [Requirement-to-Evaluation Alignment](../evaluation-reflection/alignment-matrix), which summarises how **R1-R4** connect to our design goals, prototype, and evaluation.

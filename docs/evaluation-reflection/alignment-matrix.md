@@ -2,9 +2,7 @@ import AlignmentMatrix from '@site/src/components/mdx/AlignmentMatrix';
 
 # Requirement-to-Evaluation Alignment
 
-This page makes the portfolio logic explicit: each user requirement is numbered, converted into a design goal, implemented as a system feature, demonstrated in the prototype, and evaluated through a matching usability task.
-
-The purpose is to show that the project is not a collection of separate deliverables. The research, design alternatives, prototype, and evaluation all trace back to the same four requirements.
+This page briefly reviews how our coursework connects requirements, design goals, prototype features, and evaluation tasks.
 
 <AlignmentMatrix />
 

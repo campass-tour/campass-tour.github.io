@@ -126,10 +126,6 @@ const config: Config = {
                 to: '/docs/user-requirements/requirements-list',
               },
               {
-                label: 'Requirement-to-Evaluation Alignment',
-                to: '/docs/user-requirements/alignment-matrix',
-              },
-              {
                 label: 'Evidence of Life',
                 to: '/docs/user-requirements/evidence-of-life',
               },
@@ -189,6 +185,10 @@ const config: Config = {
               {
                 label: 'Iterative Refinement',
                 to: '/docs/evaluation-reflection/iterative-refinement',
+              },
+              {
+                label: 'Requirement-to-Evaluation Alignment',
+                to: '/docs/evaluation-reflection/alignment-matrix',
               },
               {
                 label: 'Final Reflection',
