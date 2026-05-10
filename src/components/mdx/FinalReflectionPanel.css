@@ -28,6 +28,13 @@
     var(--color-surface);
 }
 
+.final-reflection-references {
+  border-color: var(--color-solution);
+  background:
+    linear-gradient(135deg, var(--bg-solution), transparent),
+    var(--color-surface);
+}
+
 .final-reflection-kicker,
 .final-reflection-heading,
 .final-reflection-ai-topline,
@@ -220,4 +227,21 @@
 
 .final-reflection-ai-link:hover {
   opacity: 0.9;
+}
+
+.final-reflection-reference-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.final-reflection-reference-list li {
+  line-height: 1.7;
+}
+
+.final-reflection-reference-list a {
+  word-break: break-all;
 }
