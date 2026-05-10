@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CSSProperties } from 'react';
 import { MapPinned, Sparkles, Users, ChevronRight } from 'lucide-react';
 import './PillarGrid.css';
 
@@ -27,7 +28,7 @@ export default function PillarGrid() {
   return (
     <div className="pillar-grid">
       {pillars.map((p, i) => (
-        <div key={i} className="pillar-card" style={{ '--accent': p.color }}>
+        <div key={i} className="pillar-card" style={{ '--accent': p.color } as CSSProperties}>
           <div className="pillar-header">
             <div className="pillar-icon-box">{p.icon}</div>
             <h3>{p.title}</h3>

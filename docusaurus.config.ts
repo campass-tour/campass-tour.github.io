@@ -187,6 +187,10 @@ const config: Config = {
                 to: '/docs/evaluation-reflection/iterative-refinement',
               },
               {
+                label: 'Requirement-to-Evaluation Alignment',
+                to: '/docs/evaluation-reflection/alignment-matrix',
+              },
+              {
                 label: 'Final Reflection',
                 to: '/docs/evaluation-reflection/final-reflection',
               },
