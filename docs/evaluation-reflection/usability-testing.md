@@ -66,126 +66,6 @@ To evaluate the alpha version of Campass, our team conducted a focused usability
   </div>
 </div>
 
-## Testing Timeline
-
-<div style={{
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-  gap: '1rem',
-  margin: '1.5rem 0 2rem',
-  position: 'relative'
-}}>
-  {[
-    {
-      step: '01',
-      title: 'Preparation',
-      tag: 'Task Setup',
-      text: 'We defined five core tasks covering clue finding, NFC-style unlocking, AR/3D interaction, and location-based posting.'
-    },
-    {
-      step: '02',
-      title: 'User Testing',
-      tag: 'Field Observation',
-      text: 'We observed real users interacting with the alpha prototype and recorded task completion, errors, and hesitation points.'
-    },
-    {
-      step: '03',
-      title: 'Result Analysis',
-      tag: 'Pattern Finding',
-      text: 'We summarised 10 participant records, including 4 external visitors and 6 existing students, to compare campus familiarity differences.'
-    },
-    {
-      step: '04',
-      title: 'Design Refinement',
-      tag: 'Design Response',
-      text: 'The findings were translated into clearer onboarding, stronger navigation cues, and better AR/3D feedback.'
-    }
-  ].map((item, index) => (
-    <div key={item.step} style={{
-      position: 'relative',
-      background: 'linear-gradient(180deg, rgba(248,245,255,0.95), rgba(255,255,255,0.95))',
-      border: '1px solid rgba(89, 60, 160, 0.18)',
-      borderRadius: '18px',
-      padding: '1.25rem',
-      boxShadow: '0 10px 28px rgba(40, 21, 89, 0.08)',
-      minHeight: '230px'
-    }}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: '1rem'
-      }}>
-        <div style={{
-          width: '42px',
-          height: '42px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #6f4bd8, #2b155f)',
-          color: 'white',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontWeight: 800,
-          fontSize: '0.95rem',
-          boxShadow: '0 8px 18px rgba(111, 75, 216, 0.28)'
-        }}>
-          {item.step}
-        </div>
-        <span style={{
-          fontSize: '0.78rem',
-          fontWeight: 700,
-          color: '#5d45a8',
-          background: 'rgba(111, 75, 216, 0.10)',
-          border: '1px solid rgba(111, 75, 216, 0.16)',
-          borderRadius: '999px',
-          padding: '0.28rem 0.65rem'
-        }}>
-          {item.tag}
-        </span>
-      </div>
-
-      <h3 style={{
-        margin: '0 0 0.7rem',
-        color: '#24105f',
-        fontSize: '1.15rem'
-      }}>
-        {item.title}
-      </h3>
-
-      <p style={{
-        margin: 0,
-        color: 'var(--ifm-color-emphasis-700)',
-        lineHeight: 1.55,
-        fontSize: '0.98rem'
-      }}>
-        {item.text}
-      </p>
-
-      {index < 3 && (
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          right: '-0.85rem',
-          width: '1.7rem',
-          height: '1.7rem',
-          borderRadius: '50%',
-          background: '#ffffff',
-          border: '1px solid rgba(111, 75, 216, 0.22)',
-          color: '#6f4bd8',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontWeight: 800,
-          boxShadow: '0 6px 16px rgba(40, 21, 89, 0.08)',
-          zIndex: 2
-        }}>
-          →
-        </div>
-      )}
-    </div>
-  ))}
-</div>
-
 Our goal was to test whether the experience was intuitive beyond the UI mockups, especially identifying divergence between users with and without prior campus familiarity.
 
 <div style={{
@@ -222,7 +102,82 @@ Our goal was to test whether the experience was intuitive beyond the UI mockups,
 
 To analyze user friction points, we designed 5 core tasks scaling from basic exploration to complex 3D interactions.
 
-<details>
+<style>{`
+.raw-data-details {
+  --ifm-table-background: rgba(255, 255, 255, 0.72);
+  --ifm-table-border-color: rgba(92, 55, 180, 0.12);
+  --ifm-table-head-background: #f0eafd;
+  --ifm-table-stripe-background: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, rgba(111, 76, 255, 0.06), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(92, 55, 180, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(40, 21, 89, 0.06);
+  margin: 1.5rem 0 2rem;
+  overflow: hidden;
+}
+
+.raw-data-details[open] {
+  box-shadow: 0 16px 38px rgba(40, 21, 89, 0.08);
+}
+
+.raw-data-details > summary {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f3ff 52%, #f0eafd 100%);
+  border-bottom: 1px solid transparent;
+  color: #24105f;
+  cursor: pointer;
+  padding: 1rem 1.15rem;
+}
+
+.raw-data-details[open] > summary {
+  border-bottom-color: rgba(92, 55, 180, 0.12);
+}
+
+.raw-data-details > summary::marker {
+  color: #6f4bd8;
+}
+
+.raw-data-details > summary:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f0ff 48%, #ebe3fb 100%);
+}
+
+.raw-data-details > summary:focus-visible {
+  outline: 2px solid rgba(111, 75, 216, 0.32);
+  outline-offset: -3px;
+}
+
+.raw-data-details h3 {
+  color: #24105f;
+  margin: 1.2rem 1.15rem 0.75rem;
+}
+
+.raw-data-details table {
+  border-color: rgba(92, 55, 180, 0.12);
+  margin: 0.75rem 1.15rem 1.35rem;
+  width: calc(100% - 2.3rem);
+}
+
+.raw-data-details thead tr,
+.raw-data-details th {
+  background: #f0eafd;
+}
+
+.raw-data-details th,
+.raw-data-details td {
+  border-color: rgba(92, 55, 180, 0.12);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.raw-data-details tbody tr,
+.raw-data-details tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.raw-data-details tbody tr:hover {
+  background: rgba(111, 76, 255, 0.055);
+}
+`}</style>
+
+<details className="raw-data-details">
 <summary><b>Click to view Raw Task Definitions & User Timings</b></summary>
 
 ### Defined Tasks
