@@ -2,9 +2,34 @@ import { AlertTriangle, ChevronRight, Compass, ExternalLink, TrendingUp } from '
 
 # Evidence of Life
 
-This video captures our team conducting an on-campus interview with a potential user. It provides direct evidence of our early-stage user research and supports the contextual validation of our design concept.
+This page documents primary user research evidence used to validate the Campass concept, including interview records and questionnaire data.
 
-## On-Campus Evidence
+## Ethical Considerations & Informed Consent
+
+<div className="evidence-info-card evidence-info-card-ethics">
+  <p className="evidence-info-lead">
+    Prior to any data collection, informed consent was obtained from all participants involved in interviews, video capture, and questionnaire responses.
+  </p>
+  <ul className="evidence-info-list">
+    <li>Participation was voluntary, and participants could stop at any time.</li>
+    <li>Personally identifiable details were excluded from portfolio reporting.</li>
+    <li>Collected data was used only for this course project's research and design evaluation.</li>
+  </ul>
+</div>
+
+## Data Collection Overview
+
+<div className="evidence-info-card evidence-info-card-overview">
+  <p className="evidence-info-lead">
+    We used two complementary data sources to support requirement definition and design direction:
+  </p>
+  <ul className="evidence-info-list">
+    <li><strong>On-campus interview evidence:</strong> contextual observations from a real user interaction session.</li>
+    <li><strong>Questionnaire evidence (N=15):</strong> aggregated survey results for behavior patterns, pain points, and feature acceptance.</li>
+  </ul>
+</div>
+
+## On-Campus Interview Evidence
 
 <video controls width="100%" style={{ maxWidth: '720px', borderRadius: '12px' }}>
   <source src="/video/evidence-of-life.mp4" type="video/mp4" />
@@ -219,6 +244,48 @@ This video captures our team conducting an on-campus interview with a potential 
   .pdf-source-link:focus,
   .pdf-source-link:active {
     text-decoration: none !important;
+  }
+
+  .evidence-info-card {
+    background: var(--color-surface);
+    border: 1px solid var(--button-outline-bg);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.1rem;
+    margin: 0.75rem 0 1.2rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .evidence-info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(var(--ifm-color-primary-rgb), 0.35);
+  }
+
+  .evidence-info-card-ethics {
+    border-left: 4px solid var(--ifm-color-primary);
+  }
+
+  .evidence-info-card-overview {
+    border-left: 4px solid var(--color-solution-text);
+  }
+
+  .evidence-info-lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ifm-color-emphasis-800);
+  }
+
+  .evidence-info-list {
+    margin: 0.7rem 0 0 1.1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .key-direction-grid {

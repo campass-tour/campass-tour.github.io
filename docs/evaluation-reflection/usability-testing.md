@@ -10,6 +10,19 @@ import UsabilityInsightsPanel from '@site/src/components/mdx/UsabilityInsightsPa
 
 To evaluate the alpha version of Campass, our team conducted a focused usability test with real users around the core campus exploration loop. The assessment included 10 participant records, exceeding the coursework requirement of testing with 3 real people: 4 external visitors and 6 existing students.
 
+## Ethical Considerations & Informed Consent
+
+<div className="usability-ethics-card">
+  <p className="usability-ethics-lead">
+    Before each usability session, participants were informed about the test purpose, recording scope, and data usage. Only participants who agreed were included.
+  </p>
+  <ul className="usability-ethics-list">
+    <li>Participation was voluntary, and participants could stop or skip questions at any time.</li>
+    <li>Portfolio reporting uses anonymized IDs (`U1`-`U10`) instead of personal names.</li>
+    <li>Media and observations shown here are used only for project evaluation and iteration analysis.</li>
+  </ul>
+</div>
+
 <div style={{
   background: 'var(--button-outline-bg)',
   border: '1px solid rgba(40, 21, 89, 0.1)',
@@ -261,3 +274,40 @@ From the raw logs, we extracted three pivotal bottlenecks that heavily undermine
 ## Summary
 
 The usability test directly shaped our critical refinements. By treating **Visitor support as a prerequisite** rather than an optional enhancement, resolving the 3D pipeline overhead, and isolating physical gestures inside the UI map, our subsequent iterations yielded a profoundly smoother digital-physical bridging experience.
+
+<style>{`
+  .usability-ethics-card {
+    background: var(--color-surface);
+    border: 1px solid var(--button-outline-bg);
+    border-left: 4px solid var(--ifm-color-primary);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.1rem;
+    margin: 0.75rem 0 1.4rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .usability-ethics-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(var(--ifm-color-primary-rgb), 0.35);
+  }
+
+  .usability-ethics-lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ifm-color-emphasis-800);
+  }
+
+  .usability-ethics-list {
+    margin: 0.7rem 0 0 1.1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+`}</style>
