@@ -30,6 +30,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'user-requirements/user-journey-map',
         'user-requirements/requirements-list',
+        'user-requirements/alignment-matrix',
         'user-requirements/evidence-of-life',
       ],
     },

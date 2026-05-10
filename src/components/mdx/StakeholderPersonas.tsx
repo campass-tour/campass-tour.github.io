@@ -1,4 +1,5 @@
 import React from 'react';
+import type { CSSProperties } from 'react';
 import { Compass, GraduationCap, Camera, Search, Flame, BookOpen, ChevronRight } from 'lucide-react';
 import './StakeholderPersonas.css';
 
@@ -42,7 +43,7 @@ export default function StakeholderPersonas() {
   return (
     <div className="persona-grid">
       {personas.map((p, i) => (
-        <div key={i} className="persona-card" style={{ '--persona-color': p.color, '--persona-bg': p.bg }}>
+        <div key={i} className="persona-card" style={{ '--persona-color': p.color, '--persona-bg': p.bg } as CSSProperties}>
           <div className="persona-header">
             <div className="persona-icon-box">
               {p.icon}

@@ -56,6 +56,23 @@
   color: var(--color-text-secondary);
 }
 
+.req-pill-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.req-id-pill {
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 100px;
+  color: #fff;
+  background: var(--ifm-color-primary);
+  letter-spacing: 0.04em;
+}
+
 .req-body {
   flex-grow: 1;
 }
@@ -64,6 +81,14 @@
   margin: 0 0 0.75rem 0;
   font-size: 1.25rem;
   color: var(--ifm-color-primary);
+}
+
+.req-goal {
+  margin: -0.25rem 0 0.7rem;
+  color: var(--ifm-color-primary-light);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .req-desc {

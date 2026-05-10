@@ -126,6 +126,10 @@ const config: Config = {
                 to: '/docs/user-requirements/requirements-list',
               },
               {
+                label: 'Requirement-to-Evaluation Alignment',
+                to: '/docs/user-requirements/alignment-matrix',
+              },
+              {
                 label: 'Evidence of Life',
                 to: '/docs/user-requirements/evidence-of-life',
               },
