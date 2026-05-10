@@ -167,6 +167,10 @@ const config: Config = {
                 label: 'Individual Contributions',
                 to: '/docs/technical-implementation/individual-contributions',
               },
+              {
+                label: 'Vibe Coding Process',
+                to: '/docs/technical-implementation/vibe-coding-process',
+              },
             ],
           },
           {
