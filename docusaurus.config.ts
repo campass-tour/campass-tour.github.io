@@ -167,6 +167,10 @@ const config: Config = {
                 label: 'Individual Contributions',
                 to: '/docs/technical-implementation/individual-contributions',
               },
+              {
+                label: 'Vibe Coding Process',
+                to: '/docs/technical-implementation/vibe-coding-process',
+              },
             ],
           },
           {
@@ -181,6 +185,10 @@ const config: Config = {
               {
                 label: 'Iterative Refinement',
                 to: '/docs/evaluation-reflection/iterative-refinement',
+              },
+              {
+                label: 'Requirement-to-Evaluation Alignment',
+                to: '/docs/evaluation-reflection/alignment-matrix',
               },
               {
                 label: 'Final Reflection',

@@ -49,7 +49,7 @@ const aiItems = [
   },
   {
     icon: Code2,
-    tool: 'VS Code + Copilot',
+    tool: 'VS Code + Copilot + Codex',
     use: 'Code implementation',
     boundary: 'Used for debugging, component edits, and documentation. Adhered to "Vibe Coding" workflow with manual verification of every component. Detailed logs available in AI Log.',
     link: '/docs/technical-implementation/vibe-coding-process#ai-log'
@@ -62,9 +62,89 @@ const aiItems = [
   },
   {
     icon: Image,
-    tool: 'DALL-E / Stock',
+    tool: 'Nano banana + GPT image 2',
     use: 'Visual & Icon generation',
     boundary: 'Used for visual generation support where initial assets were needed. Generated visuals were treated as design materials rather than factual evidence.',
+  },
+];
+
+const referenceItems = [
+  {
+    name: 'Hunyuan3D',
+    version: '2.0',
+    accessedOn: '2026-04-10',
+    url: 'https://3d.hunyuan.tencent.com',
+    usage: 'Used for generating and supporting the 3D mascot/AR asset workflow.',
+  },
+  {
+    name: 'Nano Banana',
+    version: 'Gemini 2.5 Flash Image',
+    accessedOn: '2026-04-20',
+    url: 'https://gemini.google.com',
+    usage: 'Used for image generation of concept visuals and supporting assets used in documentation and poster presentation.',
+  },
+  {
+    name: 'ChatGPT Image 2',
+    version: '1.0',
+    accessedOn: '2026-04-10',
+    url: 'https://chatgpt.com',
+    usage: 'Used for image generation support and quick visual variation drafting during iterative design communication.',
+  },
+  {
+    name: 'Gemini',
+    version: '3.1 Pro',
+    accessedOn: '2026-04-11',
+    url: 'https://gemini.google.com',
+    usage: 'Used for higher-depth ideation, structure refinement, and polishing reflection wording.',
+  },
+  {
+    name: 'Gemini',
+    version: '3 Flash',
+    accessedOn: '2026-05-02',
+    url: 'https://gemini.google.com',
+    usage: 'Used for rapid prompt iteration, quick rewriting, and short-cycle wording checks during documentation updates.',
+  },
+  {
+    name: 'Grok Code Fast 1',
+    version: '1.0',
+    accessedOn: '2026-04-10',
+    url: 'https://x.com/i/grok',
+    usage: 'Used for fast coding assistance, patch drafting, and debugging alternatives in implementation tasks.',
+  },
+  {
+    name: 'GitHub Copilot',
+    version: ' web version',
+    accessedOn: '2026-04-10',
+    url: 'https://github.com/features/copilot',
+    usage: 'Used for code completion, inline suggestions, and implementation acceleration during development.',
+  },
+  {
+    name: 'Codex',
+    version: '5.2',
+    accessedOn: '2026-04-05',
+    url: 'https://chatgpt.com/codex',
+    usage: 'Used for early-stage component scaffolding and baseline implementation support.',
+  },
+  {
+    name: 'Codex',
+    version: '5.3',
+    accessedOn: '2026-04-26',
+    url: 'https://chatgpt.com/codex',
+    usage: 'Used for iterative bug fixes and task-level refactoring in the development workflow.',
+  },
+  {
+    name: 'Codex',
+    version: '5.4',
+    accessedOn: '2026-04-22',
+    url: 'https://chatgpt.com/codex',
+    usage: 'Used for stronger TypeScript and UI logic cleanup across modular components.',
+  },
+  {
+    name: 'Codex',
+    version: '5.5',
+    accessedOn: '2026-05-01',
+    url: 'https://chatgpt.com/codex',
+    usage: 'Used for final-round integration checks, consistency updates, and documentation refinement.',
   },
 ];
 
@@ -185,6 +265,24 @@ export const FinalReflectionPanel = () => {
           The most valuable version of Campass is not the most feature-heavy one. It is the version that helps users feel
           oriented, curious, and connected while still respecting their privacy, attention, and autonomy.
         </p>
+      </div>
+
+      <div className="final-reflection-section final-reflection-references">
+        <div className="final-reflection-heading">
+          <ExternalLink size={22} />
+          <h2>Reference List</h2>
+        </div>
+        <ol className="final-reflection-reference-list">
+          {referenceItems.map((item, index) => (
+            <li key={`${item.name}-${item.version}`}>
+              [{index + 1}] {item.name}, v{item.version}, accessed on {item.accessedOn}, available at{' '}
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
+                {item.url}
+              </a>
+              . {item.usage}
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

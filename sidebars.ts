@@ -58,8 +58,13 @@ const sidebars: SidebarsConfig = {
       items: [
         'evaluation-reflection/usability-testing',
         'evaluation-reflection/iterative-refinement',
+        'evaluation-reflection/alignment-matrix',
         'evaluation-reflection/final-reflection',
-        'evaluation-reflection/limitation-future-work',
+        {
+          type: 'doc',
+          id: 'evaluation-reflection/limitation-future-work',
+          label: 'Limitations & Future Work',
+        },
       ],
     },
   ],

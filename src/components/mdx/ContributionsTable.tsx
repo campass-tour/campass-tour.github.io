@@ -34,10 +34,10 @@ const CONTRIBUTIONS = {
   'Ling Xu': {
     1: ['Literature & Competitor Research', 'Questionnaire Design & User Survey', 'User Interview Recording & Insight Collection'],
     2: ['Design Solution Development', 'Playful Strategy'],
-    3: ['Crazy 8s (collection page)', 'UI Assets', '2D Icon Clue Design'],
+    3: ['Crazy 8s (collection page)', 'Interactive Prototyping (Figma)', 'UI Assets', '2D Icon Clue Design'],
     4: ['AR & 3D Integration', 'DevOps & Deployment'],
     5: ['3D Custom Asset Design (SB, EB)', 'Landmark Lore (SB, EB)', 'Quiz & Challenges (SB, EB)', 'Social Seeding (SB, EB)', 'UX Writing'],
-    6: ['Iterative Refinement']
+    6: ['Iterative Refinement', 'Portfolio Website', 'Video Voiceover Production']
   },
   'Keyao Li': {
     1: ['Literature & Competitor Research','The Gap Analysis','Evidence of Life Collection','Persona Design'],
@@ -47,8 +47,13 @@ const CONTRIBUTIONS = {
     5: ['3D Custom Asset Design(FB, GYM)','Landmark Lore(FB, GYM)','Quiz Design(FB, GYM)','Social Seeding(FB, GYM)','UX Writing'],
     6: ['Video Production','Usability Testing','Portfolio Website']
   },
-  'C': {
-    1: [], 2: [], 3: [], 4: [], 5: [], 6: []
+  'Xucheng Xue': {
+    1: { score: 2, tasks: ['Literature & Competitor Research', 'User Survey'] },
+    2: { score: 2, tasks: ['Playful Strategy', 'Testing Task Design'] },
+    3: { score: 3, tasks: ['Crazy 8s (wall page)', 'UI Assets', 'Clue Design'] },
+    4: { score: 2, tasks: ['AR & 3D Integration', 'DevOps & Deployment'] },
+    5: { score: 5, tasks: ['3D Custom Asset Design(HS, BS)', 'Landmark Lore(HS, BS)', 'Quiz Design(HS, BS)', 'Social Seeding(HS, BS)', 'UX Writing'] },
+    6: { score: 2, tasks: ['Evaluation & Impact Section', 'Portfolio Website'] }
   }
 };
 
@@ -86,20 +91,22 @@ export default function ContributionsTable() {
                 </div>
               </td>
               {Object.keys(CONTRIBUTIONS).map((person) => {
-                const tasks = CONTRIBUTIONS[person as keyof typeof CONTRIBUTIONS][stage.id as keyof (typeof CONTRIBUTIONS)['Qiran Xiao']] || [];
+                const entry = (CONTRIBUTIONS[person as keyof typeof CONTRIBUTIONS] as Record<number, string[] | { score: number; tasks: string[] }>)[stage.id] || [];
+                const tasks = Array.isArray(entry) ? entry : entry.tasks;
+                const contributionCount = Array.isArray(entry) ? entry.length : entry.score;
                 const isActive = activeCell?.stage === stage.id && activeCell?.person === person;
                 const isLowerHalf = stage.id > STAGES.length / 2;
                 
                 return (
                   <td 
                     key={`${stage.id}-${person}`}
-                    className={`ct-cell-task ${tasks.length > 0 ? 'ct-has-tasks' : ''} ${isActive ? 'ct-active' : ''}`}
-                    onMouseEnter={() => tasks.length > 0 && setActiveCell({ stage: stage.id, person })}
+                    className={`ct-cell-task ${contributionCount > 0 ? 'ct-has-tasks' : ''} ${isActive ? 'ct-active' : ''}`}
+                    onMouseEnter={() => contributionCount > 0 && setActiveCell({ stage: stage.id, person })}
                     onMouseLeave={() => setActiveCell(null)}
                   >
                     <div className="ct-cell-content">
-                      <div className={getHeatmapClass(tasks.length)}>
-                        {tasks.length > 0 && <span className="ct-circle-text">{tasks.length}</span>}
+                      <div className={getHeatmapClass(contributionCount)}>
+                        {contributionCount > 0 && <span className="ct-circle-text">{contributionCount}</span>}
                       </div>
                     </div>
                     {isActive && tasks.length > 0 && (

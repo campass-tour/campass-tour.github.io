@@ -1,6 +1,6 @@
 .contributions-table-wrapper {
   margin: 2rem 0;
-  overflow-x: auto;
+  overflow-x: hidden;
   border-radius: var(--radius-card, 16px);
   box-shadow: var(--shadow-card, 0px 4px 12px rgba(0,0,0,0.05));
   border: 1px solid var(--button-outline-bg, rgba(40, 21, 89, 0.1));
@@ -8,7 +8,11 @@
 }
 
 .contributions-table {
-  width: 100%;
+  display: table;
+  width: 100% !important;
+  min-width: 0;
+  max-width: none;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
   margin: 0;
@@ -37,7 +41,7 @@
   font-weight: 600;
   color: var(--ifm-color-primary, #281559);
   background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.5));
-  width: 250px;
+  width: 32%;
 }
 
 .ct-header-person {
@@ -45,6 +49,9 @@
   font-weight: 600;
   background-color: var(--button-outline-bg, rgba(236, 233, 244, 0.5));
   color: var(--color-text-main, #1a1a1a);
+  width: 17%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .ct-row:hover .ct-cell-stage {
@@ -294,4 +301,14 @@
 [data-theme='dark'] .ct-tooltip-title {
   color: var(--ifm-color-primary-lightest, #9573d5);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+  .contributions-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .contributions-table {
+    min-width: 900px;
+  }
 }

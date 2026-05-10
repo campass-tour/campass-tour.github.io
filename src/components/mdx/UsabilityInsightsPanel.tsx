@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PlayRenderer, MapPin, Camera, Move3d, Users, Smartphone, Hand, ChevronRight } from 'lucide-react';
+import { MapPin, Camera, Move3d, Users, Smartphone, Hand, ChevronRight } from 'lucide-react';
 import './UsabilityInsightsPanel.css';
 
 const insights = [

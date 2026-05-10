@@ -8,7 +8,76 @@ import UsabilityInsightsPanel from '@site/src/components/mdx/UsabilityInsightsPa
 
 ## Overview & Setup
 
-To evaluate the alpha version of Campass, our team conducted a focused usability test around the core campus exploration loop. The assessment included a consolidated pilot summary covering 10 participant records: 4 external visitors and 6 existing students.
+To evaluate the alpha version of Campass, our team conducted a focused usability test with real users around the core campus exploration loop. The assessment included 10 participant records, exceeding the coursework requirement of testing with 3 real people: 4 external visitors and 6 existing students.
+
+## Ethical Considerations & Informed Consent
+
+<div className="usability-ethics-card">
+  <p className="usability-ethics-lead">
+    Before each usability session, participants were informed about the test purpose, recording scope, and data usage. Only participants who agreed were included.
+  </p>
+  <ul className="usability-ethics-list">
+    <li>Participation was voluntary, and participants could stop or skip questions at any time.</li>
+    <li>Portfolio reporting uses anonymized IDs (`U1`-`U10`) instead of personal names.</li>
+    <li>Media and observations shown here are used only for project evaluation and iteration analysis.</li>
+  </ul>
+</div>
+
+<div style={{
+  background: 'var(--button-outline-bg)',
+  border: '1px solid rgba(40, 21, 89, 0.1)',
+  borderRadius: 'var(--radius-card, 16px)',
+  padding: '1rem',
+  margin: '1.5rem 0 2rem'
+}}>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '0.85rem'
+  }}>
+    <img
+      src="/images/evaluation/usability-session-1.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+    <img
+      src="/images/evaluation/usability-session-2.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+    <img
+      src="/images/evaluation/usability-session-3.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+  </div>
+  <div style={{
+    color: 'var(--color-text-secondary, #666)',
+    fontSize: '0.9rem',
+    marginTop: '0.75rem',
+    textAlign: 'center'
+  }}>
+    Figure 1. Observed alpha usability testing sessions with real users.
+  </div>
+</div>
 
 Our goal was to test whether the experience was intuitive beyond the UI mockups, especially identifying divergence between users with and without prior campus familiarity.
 
@@ -46,7 +115,82 @@ Our goal was to test whether the experience was intuitive beyond the UI mockups,
 
 To analyze user friction points, we designed 5 core tasks scaling from basic exploration to complex 3D interactions.
 
-<details>
+<style>{`
+.raw-data-details {
+  --ifm-table-background: rgba(255, 255, 255, 0.72);
+  --ifm-table-border-color: rgba(92, 55, 180, 0.12);
+  --ifm-table-head-background: #f0eafd;
+  --ifm-table-stripe-background: rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, rgba(111, 76, 255, 0.06), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(92, 55, 180, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 14px 34px rgba(40, 21, 89, 0.06);
+  margin: 1.5rem 0 2rem;
+  overflow: hidden;
+}
+
+.raw-data-details[open] {
+  box-shadow: 0 16px 38px rgba(40, 21, 89, 0.08);
+}
+
+.raw-data-details > summary {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f3ff 52%, #f0eafd 100%);
+  border-bottom: 1px solid transparent;
+  color: #24105f;
+  cursor: pointer;
+  padding: 1rem 1.15rem;
+}
+
+.raw-data-details[open] > summary {
+  border-bottom-color: rgba(92, 55, 180, 0.12);
+}
+
+.raw-data-details > summary::marker {
+  color: #6f4bd8;
+}
+
+.raw-data-details > summary:hover {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f0ff 48%, #ebe3fb 100%);
+}
+
+.raw-data-details > summary:focus-visible {
+  outline: 2px solid rgba(111, 75, 216, 0.32);
+  outline-offset: -3px;
+}
+
+.raw-data-details h3 {
+  color: #24105f;
+  margin: 1.2rem 1.15rem 0.75rem;
+}
+
+.raw-data-details table {
+  border-color: rgba(92, 55, 180, 0.12);
+  margin: 0.75rem 1.15rem 1.35rem;
+  width: calc(100% - 2.3rem);
+}
+
+.raw-data-details thead tr,
+.raw-data-details th {
+  background: #f0eafd;
+}
+
+.raw-data-details th,
+.raw-data-details td {
+  border-color: rgba(92, 55, 180, 0.12);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.raw-data-details tbody tr,
+.raw-data-details tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.raw-data-details tbody tr:hover {
+  background: rgba(111, 76, 255, 0.055);
+}
+`}</style>
+
+<details className="raw-data-details">
 <summary><b>Click to view Raw Task Definitions & User Timings</b></summary>
 
 ### Defined Tasks
@@ -85,3 +229,40 @@ From the raw logs, we extracted three pivotal bottlenecks that heavily undermine
 ## Summary
 
 The usability test directly shaped our critical refinements. By treating **Visitor support as a prerequisite** rather than an optional enhancement, resolving the 3D pipeline overhead, and isolating physical gestures inside the UI map, our subsequent iterations yielded a profoundly smoother digital-physical bridging experience.
+
+<style>{`
+  .usability-ethics-card {
+    background: var(--color-surface);
+    border: 1px solid var(--button-outline-bg);
+    border-left: 4px solid var(--ifm-color-primary);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.1rem;
+    margin: 0.75rem 0 1.4rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .usability-ethics-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(var(--ifm-color-primary-rgb), 0.35);
+  }
+
+  .usability-ethics-lead {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ifm-color-emphasis-800);
+  }
+
+  .usability-ethics-list {
+    margin: 0.7rem 0 0 1.1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.45rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+`}</style>
