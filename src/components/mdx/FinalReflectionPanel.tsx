@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import {
   BadgeCheck,
   Bot,
@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Sparkles,
   Users,
+  ExternalLink,
 } from 'lucide-react';
 import './FinalReflectionPanel.css';
 
@@ -48,9 +49,10 @@ const aiItems = [
   },
   {
     icon: Code2,
-    tool: 'Codex',
+    tool: 'VS Code + Copilot',
     use: 'Code implementation',
-    boundary: 'Used for debugging, component edits, build checks, and documentation implementation. Code changes were reviewed and tested before being kept.',
+    boundary: 'Used for debugging, component edits, and documentation. Adhered to "Vibe Coding" workflow with manual verification of every component. Detailed logs available in AI Log.',
+    link: '/docs/technical-implementation/vibe-coding-process#ai-log'
   },
   {
     icon: Bot,
@@ -60,9 +62,9 @@ const aiItems = [
   },
   {
     icon: Image,
-    tool: 'Nano Banana',
-    use: 'Image generation',
-    boundary: 'Used for visual generation support where image assets were needed. Generated visuals were treated as design materials rather than factual evidence.',
+    tool: 'DALL-E / Stock',
+    use: 'Visual & Icon generation',
+    boundary: 'Used for visual generation support where initial assets were needed. Generated visuals were treated as design materials rather than factual evidence.',
   },
 ];
 
@@ -160,6 +162,12 @@ export const FinalReflectionPanel = () => {
                   </div>
                 </div>
                 <p>{item.boundary}</p>
+                {item.link && (
+                  <a href={item.link} className="final-reflection-ai-link">
+                    <span>View our AI Logs</span>
+                    <ExternalLink size={14} />
+                  </a>
+                )}
               </article>
             );
           })}
