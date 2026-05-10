@@ -7,6 +7,11 @@ import StakeholderPersonas from '@site/src/components/mdx/StakeholderPersonas';
 
 Our design is centered around three core user personas. By segmenting stakeholders by their familiarity and motivations, we move beyond generic navigation to address specific emotional and functional needs.
 
+### User Priority Definition
+
+- **Primary users:** **The Explorer** and **The Veteran** (current students with different familiarity levels, who represent the core day-to-day product audience).
+- **Secondary users:** **The Guest** (visitors and parents, who need guided, contextual campus storytelling rather than routine navigation support).
+
 <StakeholderPersonas />
 
 ## 2. Key Insights & Strategy
