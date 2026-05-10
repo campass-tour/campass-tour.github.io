@@ -35,11 +35,11 @@ Generic platforms are too broad, and official apps are too formal. Campass focus
 
 ---
 
-<div style={{ 
-  background: 'var(--button-outline-bg)', 
-  padding: '1.5rem', 
-  borderRadius: '20px', 
-  display: 'flex', 
+<div style={{
+  background: 'var(--button-outline-bg)',
+  padding: '1.5rem',
+  borderRadius: '20px',
+  display: 'flex',
   gap: '1.2rem',
   alignItems: 'center',
   marginTop: '2.5rem',
@@ -52,3 +52,15 @@ Generic platforms are too broad, and official apps are too formal. Campass focus
     <strong style={{ color: 'var(--ifm-color-primary)' }}>Core Differentiation:</strong> We bridge the gap between <strong>Technical Depth</strong> and <strong>Emotional Connection</strong>, leveraging WebAR to transform campus navigation into a living social narrative.
   </p>
 </div>
+
+---
+
+## Reference List
+
+[1] J. Lindqvist, J. Cranshaw, J. Wiese, J. Hong, and J. Zimmerman, "I'm the Mayor of My House: Examining why people use Foursquare - a social-driven location sharing application," in *Proc. SIGCHI Conf. Human Factors in Computing Systems (CHI '11)*, New York, USA, 2011, pp. 2409-2418, doi: 10.1145/1978942.1979295.
+
+[2] C. Mourelatos and M. Vrigkas, "Integrating augmented reality and geolocation for outdoor interactive educational experiences," *Virtual Worlds*, vol. 4, no. 2, Art. no. 18, 2025, doi: 10.3390/virtualworlds4020018.
+
+[3] K. Papangelis, A. Chamberlain, I. Lykourentzou, and T. Cao, "Performing the digital self: Understanding location-based social networking, territory, space, and identity in the city," *ACM Transactions on Computer-Human Interaction*, vol. 27, no. 1, Art. no. 1, pp. 1-26, 2020, doi: 10.1145/3364997.
+
+[4] R. B. Figueroa Jr., M. G. Duat, A. F. Mendoza, and H. J. Baccay, "Virtualizing a university campus tour: A pilot study on its usability, user experience, and perception," *International Journal in Information Technology in Governance, Education and Business*, vol. 2, no. 1, pp. 1-9, 2020, doi: 10.32664/ijitgeb.v2i1.60.
