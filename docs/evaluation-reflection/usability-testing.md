@@ -8,7 +8,183 @@ import UsabilityInsightsPanel from '@site/src/components/mdx/UsabilityInsightsPa
 
 ## Overview & Setup
 
-To evaluate the alpha version of Campass, our team conducted a focused usability test around the core campus exploration loop. The assessment included a consolidated pilot summary covering 10 participant records: 4 external visitors and 6 existing students.
+To evaluate the alpha version of Campass, our team conducted a focused usability test with real users around the core campus exploration loop. The assessment included 10 participant records, exceeding the coursework requirement of testing with 3 real people: 4 external visitors and 6 existing students.
+
+<div style={{
+  background: 'var(--button-outline-bg)',
+  border: '1px solid rgba(40, 21, 89, 0.1)',
+  borderRadius: 'var(--radius-card, 16px)',
+  padding: '1rem',
+  margin: '1.5rem 0 2rem'
+}}>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+    gap: '0.85rem'
+  }}>
+    <img
+      src="/images/evaluation/usability-session-1.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+    <img
+      src="/images/evaluation/usability-session-2.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+    <img
+      src="/images/evaluation/usability-session-3.jpg"
+      alt="Alpha usability testing session with a participant using Campass"
+      style={{
+        width: '100%',
+        height: '320px',
+        objectFit: 'cover',
+        borderRadius: '14px',
+        boxShadow: 'var(--shadow-card-hover, 0 8px 24px rgba(0,0,0,0.1))'
+      }}
+    />
+  </div>
+  <div style={{
+    color: 'var(--color-text-secondary, #666)',
+    fontSize: '0.9rem',
+    marginTop: '0.75rem',
+    textAlign: 'center'
+  }}>
+    Figure 1. Observed alpha usability testing sessions with real users.
+  </div>
+</div>
+
+## Testing Timeline
+
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+  gap: '1rem',
+  margin: '1.5rem 0 2rem',
+  position: 'relative'
+}}>
+  {[
+    {
+      step: '01',
+      title: 'Preparation',
+      tag: 'Task Setup',
+      text: 'We defined five core tasks covering clue finding, NFC-style unlocking, AR/3D interaction, and location-based posting.'
+    },
+    {
+      step: '02',
+      title: 'User Testing',
+      tag: 'Field Observation',
+      text: 'We observed real users interacting with the alpha prototype and recorded task completion, errors, and hesitation points.'
+    },
+    {
+      step: '03',
+      title: 'Result Analysis',
+      tag: 'Pattern Finding',
+      text: 'We summarised 10 participant records, including 4 external visitors and 6 existing students, to compare campus familiarity differences.'
+    },
+    {
+      step: '04',
+      title: 'Design Refinement',
+      tag: 'Design Response',
+      text: 'The findings were translated into clearer onboarding, stronger navigation cues, and better AR/3D feedback.'
+    }
+  ].map((item, index) => (
+    <div key={item.step} style={{
+      position: 'relative',
+      background: 'linear-gradient(180deg, rgba(248,245,255,0.95), rgba(255,255,255,0.95))',
+      border: '1px solid rgba(89, 60, 160, 0.18)',
+      borderRadius: '18px',
+      padding: '1.25rem',
+      boxShadow: '0 10px 28px rgba(40, 21, 89, 0.08)',
+      minHeight: '230px'
+    }}>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: '1rem'
+      }}>
+        <div style={{
+          width: '42px',
+          height: '42px',
+          borderRadius: '50%',
+          background: 'linear-gradient(135deg, #6f4bd8, #2b155f)',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontWeight: 800,
+          fontSize: '0.95rem',
+          boxShadow: '0 8px 18px rgba(111, 75, 216, 0.28)'
+        }}>
+          {item.step}
+        </div>
+        <span style={{
+          fontSize: '0.78rem',
+          fontWeight: 700,
+          color: '#5d45a8',
+          background: 'rgba(111, 75, 216, 0.10)',
+          border: '1px solid rgba(111, 75, 216, 0.16)',
+          borderRadius: '999px',
+          padding: '0.28rem 0.65rem'
+        }}>
+          {item.tag}
+        </span>
+      </div>
+
+      <h3 style={{
+        margin: '0 0 0.7rem',
+        color: '#24105f',
+        fontSize: '1.15rem'
+      }}>
+        {item.title}
+      </h3>
+
+      <p style={{
+        margin: 0,
+        color: 'var(--ifm-color-emphasis-700)',
+        lineHeight: 1.55,
+        fontSize: '0.98rem'
+      }}>
+        {item.text}
+      </p>
+
+      {index < 3 && (
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          right: '-0.85rem',
+          width: '1.7rem',
+          height: '1.7rem',
+          borderRadius: '50%',
+          background: '#ffffff',
+          border: '1px solid rgba(111, 75, 216, 0.22)',
+          color: '#6f4bd8',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontWeight: 800,
+          boxShadow: '0 6px 16px rgba(40, 21, 89, 0.08)',
+          zIndex: 2
+        }}>
+          →
+        </div>
+      )}
+    </div>
+  ))}
+</div>
 
 Our goal was to test whether the experience was intuitive beyond the UI mockups, especially identifying divergence between users with and without prior campus familiarity.
 
